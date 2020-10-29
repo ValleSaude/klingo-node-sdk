@@ -3,9 +3,9 @@
 Aplicação em desenvolvimento. Recursos básicos para integração com o Klingo. **Em breve documentação.**
 
 ## Checklist
-- [ ] Verificar API
-- [ ] Externo
-	- [ ] Realizar Cadastro de Paciente
+- [x] Verificar API
+- [x] Externo
+	- [x] Realizar Cadastro de Paciente
 	- [ ] Realizar Autenticação da Aplicação Identificando Cliente
 - [ ] Paciente
 	- [ ] Atualizar Dados do Paciente

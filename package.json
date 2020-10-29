@@ -17,7 +17,6 @@
 		"@babel/runtime": "^7.4.4",
 		"ip": "^1.1.5",
 		"clone": "^2.1.2",
-		"fast-xml-parser": "^3.12.5",
 		"request": "^2.88.0",
 		"request-promise": "^4.2.2",
 		"winston": "^3.1.0"
@@ -44,6 +43,14 @@
 		"nodemon": "^1.17.3",
 		"rimraf": "^2.6.2"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/rafaneri/klingo-node-sdk.git"
+	},
+	"bugs": {
+		"url": "https://github.com/rafaneri/klingo-node-sdk/issues"
+	},
+	"homepage": "https://github.com/rafaneri/klingo-node-sdk#readme",
 	"keywords": [
 		"nodejs",
 		"klingo"

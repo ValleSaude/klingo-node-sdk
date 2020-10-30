@@ -44,11 +44,14 @@ const authenticate = async (opts, params) => {
     });
 
     const content = JSON.parse(response.content);
+    const authentication = { ...content, expires: moment().add(content.expires_in, 'seconds') };
+
+    opts.authentication = authentication;
 
     return {
       ...response,
       content,
-      authentication: { ...content, expires: moment().add(content.expires_in, 'seconds') }
+      authentication
     };
   } catch (e) {
     const error = { ...e.response };

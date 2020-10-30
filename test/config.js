@@ -47,9 +47,52 @@ const patient = {
 };
 
 /**
+ * Patient Wrong
+ */
+const patient_wrong = {
+    "login": "chapp",
+    "senha": "123",
+    "paciente": {
+        "id_origem": "5f970e0e8839ec0017df6975",
+        "nome": "Rafael da Mata Neri",
+        "sexo": "M",
+        "dt_nasc": "1980-01-01",
+        "mae": "Mãe da Mata Neri",
+        "contatos": {
+            "email": "rafael.neri@gmail.com"
+        },
+        "endereco": {
+            "endereco": "Rua Da Casa",
+            "numero": "999",
+            "complemento": "Casa 999",
+            "bairro": "Bairro",
+            "cidade": "Salvador",
+            "uf": "BA"
+        }
+    }
+};
+
+/**
+ * Patient Id
+ */
+const patient_id = {
+    "id": 8
+};
+
+/**
+ * Patient Id Wrong
+ */
+const patient_id_wrong = {
+    "id": -8
+};
+
+/**
  * exports
  */
 module.exports = {
     klingo,
-    patient
+    patient,
+    patient_wrong,
+    patient_id,
+    patient_id_wrong
 };

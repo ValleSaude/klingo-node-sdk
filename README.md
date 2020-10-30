@@ -6,7 +6,7 @@ Aplicação em desenvolvimento. Recursos básicos para integração com o Klingo
 - [x] Verificar API
 - [x] Externo
 	- [x] Realizar Cadastro de Paciente
-	- [ ] Realizar Autenticação da Aplicação Identificando Cliente
+	- [x] Realizar Autenticação da Aplicação Identificando Cliente
 - [ ] Paciente
 	- [ ] Atualizar Dados do Paciente
 	- [ ] Obter Dados do Paciente

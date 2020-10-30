@@ -31,6 +31,7 @@ module.exports = params => {
      * Config
      */
     const config = {
+        authentication: undefined,
         logger: log,
         env: params.env,
         base: {

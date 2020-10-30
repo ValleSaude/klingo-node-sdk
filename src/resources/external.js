@@ -1,6 +1,7 @@
 const request = require("request-promise");
 const config = require("../config");
 const KlingoError = require("../Error");
+const moment = require('moment');
 
 const register = async (opts, params) => {
   try {
@@ -25,6 +26,44 @@ const register = async (opts, params) => {
           message: "Unauthorized"
         }
       ];
+    } else {
+      error.content = JSON.parse(e.response.body);
+    }
+
+    throw new KlingoError(error);
+  }
+};
+
+const authenticate = async (opts, params) => {
+  try {
+    const response = await request({
+      ...opts,
+      url: `${opts.base.default}/${config.external.authenticate}`,
+      method: "POST",
+      body: JSON.stringify(params)
+    });
+
+    const content = JSON.parse(response.content);
+
+    return {
+      ...response,
+      content,
+      authentication: { ...content, expires: moment().add(content.expires_in, 'seconds') }
+    };
+  } catch (e) {
+    const error = { ...e.response };
+
+    if (error.content && error.content == "Unauthorized") {
+      error.content = [
+        {
+          code: 401,
+          message: "Unauthorized"
+        }
+      ];
+    } else if (e.response.statusCode === 419) {
+      error.content = e.response.body;
+    } else {
+      error.content = JSON.parse(e.response.body);
     }
 
     throw new KlingoError(error);
@@ -32,5 +71,6 @@ const register = async (opts, params) => {
 };
 
 module.exports = {
-  register
+  register,
+  authenticate
 };

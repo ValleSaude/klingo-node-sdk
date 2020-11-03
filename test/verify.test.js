@@ -1,9 +1,9 @@
 const config = require("./config");
 const klingo = require("../src");
 
-describe("Verify", function () {
-	
-	test("success", async function () {
+const verifytests = () => {
+
+	it("success", async function () {
 		const client = klingo.client(config.klingo);
 		const verify = await client.verify.get();
 
@@ -12,7 +12,7 @@ describe("Verify", function () {
 		expect(verify.content).toEqual('OK');
 	});
 
-	test("error", async function () {
+	it("error", async function () {
 		try {
 			const configError = { ...config.klingo, xAppToken: "", env: "" };
 			const client = klingo.client(configError);
@@ -26,4 +26,9 @@ describe("Verify", function () {
 			expect(Array.isArray(e.content)).toEqual(false);
 		}
 	});
-});
+
+}
+
+describe('Verify', verifytests)
+
+module.exports = verifytests;

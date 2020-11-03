@@ -1,0 +1,1921 @@
+{
+	"info": {
+		"_postman_id": "924f2d34-f762-46ac-be24-b3e74b5ad872",
+		"name": "Klingo API Externa",
+		"description": "Klingo API externa\n\nContact Support: \n{\n\nName : undefined\n\nEmail : suporte@klingo.com.br\n\n}",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "externo",
+			"item": [
+				{
+					"name": "Realiza o cadastro do paciente.",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-APP-TOKEN",
+								"value": "{{xapptoken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"USUARIO\",\n    \"senha\": \"SENHA\",\n    \"paciente\": {\n        \"id_origem\": \"5f970e0e8839ec0017df6975\",\n        \"nome\": \"Rafael da Mata Neri\",\n        \"sexo\": \"M\",\n        \"dt_nasc\": \"1983-03-01\",\n        \"mae\": \"Maria Joana da Mata Neri\",\n        \"docs\": {\n            \"cpf\": \"00000000000\"\n        },\n        \"contatos\": {\n            \"celular\": \"71999090338\",\n            \"telefone\": \"71999090338\",\n            \"email\": \"rafael.neri@gmail.com\"\n        },\n        \"endereco\": {\n            \"cep\": \"41650035\",\n            \"endereco\": \"Rua Camuripeba\",\n            \"numero\": \"48\",\n            \"complemento\": \"Casa 02\",\n            \"bairro\": \"Piatã\",\n            \"cidade\": \"Salvador\",\n            \"uf\": \"BA\"\n        },\n        \"convenio\": {\n            \"matricula\": \"01597619566\",\n            \"validade\": \"2030-12-20\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/externo/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"externo",
+								"register"
+							]
+						},
+						"description": "Cadastro do Paciente"
+					},
+					"response": [
+						{
+							"name": "Id do paciente criado.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-APP-TOKEN",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"login\": \"<string>\",\n    \"senha\": \"<string>\",\n    \"paciente\": {\n        \"id_origem\": \"<integer>\",\n        \"nome\": \"<string>\",\n        \"sexo\": \"<string>\",\n        \"dt_nasc\": \"<string>\",\n        \"mae\": \"<string>\",\n        \"docs\": {\n            \"cpf\": \"<string>\",\n            \"rg\": \"<string>\"\n        },\n        \"contatos\": {\n            \"celular\": \"<string>\",\n            \"telefone\": \"<string>\",\n            \"email\": \"<string>\"\n        },\n        \"endereco\": {\n            \"cep\": \"<string>\",\n            \"endereco\": \"<string>\",\n            \"numero\": \"<string>\",\n            \"complemento\": \"<string>\",\n            \"bairro\": \"<string>\",\n            \"cidade\": \"<string>\",\n            \"uf\": \"<string>\"\n        },\n        \"convenio\": {\n            \"id\": \"<string>\",\n            \"reg_ans\": \"<string>\",\n            \"matricula\": \"<string>\",\n            \"validade\": \"<string>\",\n            \"id_plano\": \"<string>\"\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/externo/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"externo",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id\": \"<number>\"\n}"
+						},
+						{
+							"name": "Invalid input",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-APP-TOKEN",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"login\": \"<string>\",\n    \"senha\": \"<string>\",\n    \"paciente\": {\n        \"id_origem\": \"<integer>\",\n        \"nome\": \"<string>\",\n        \"sexo\": \"<string>\",\n        \"dt_nasc\": \"<string>\",\n        \"mae\": \"<string>\",\n        \"docs\": {\n            \"cpf\": \"<string>\",\n            \"rg\": \"<string>\"\n        },\n        \"contatos\": {\n            \"celular\": \"<string>\",\n            \"telefone\": \"<string>\",\n            \"email\": \"<string>\"\n        },\n        \"endereco\": {\n            \"cep\": \"<string>\",\n            \"endereco\": \"<string>\",\n            \"numero\": \"<string>\",\n            \"complemento\": \"<string>\",\n            \"bairro\": \"<string>\",\n            \"cidade\": \"<string>\",\n            \"uf\": \"<string>\"\n        },\n        \"convenio\": {\n            \"id\": \"<string>\",\n            \"reg_ans\": \"<string>\",\n            \"matricula\": \"<string>\",\n            \"validade\": \"<string>\",\n            \"id_plano\": \"<string>\"\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/externo/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"externo",
+										"register"
+									]
+								}
+							},
+							"status": "Method Not Allowed",
+							"code": 405,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "dados inválidos.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-APP-TOKEN",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"login\": \"<string>\",\n    \"senha\": \"<string>\",\n    \"paciente\": {\n        \"id_origem\": \"<integer>\",\n        \"nome\": \"<string>\",\n        \"sexo\": \"<string>\",\n        \"dt_nasc\": \"<string>\",\n        \"mae\": \"<string>\",\n        \"docs\": {\n            \"cpf\": \"<string>\",\n            \"rg\": \"<string>\"\n        },\n        \"contatos\": {\n            \"celular\": \"<string>\",\n            \"telefone\": \"<string>\",\n            \"email\": \"<string>\"\n        },\n        \"endereco\": {\n            \"cep\": \"<string>\",\n            \"endereco\": \"<string>\",\n            \"numero\": \"<string>\",\n            \"complemento\": \"<string>\",\n            \"bairro\": \"<string>\",\n            \"cidade\": \"<string>\",\n            \"uf\": \"<string>\"\n        },\n        \"convenio\": {\n            \"id\": \"<string>\",\n            \"reg_ans\": \"<string>\",\n            \"matricula\": \"<string>\",\n            \"validade\": \"<string>\",\n            \"id_plano\": \"<string>\"\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/externo/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"externo",
+										"register"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Realiza a autenticação da aplicação, identificando o paciente.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "18e04f31-7e32-4d16-b843-379d5d151531",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"access_token\", jsonData.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-APP-TOKEN",
+								"value": "{{xapptoken}}",
+								"description": "Token de integração."
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"{{login}}\",\n    \"senha\": \"{{password}}\",\n    \"id\": 8\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/externo/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"externo",
+								"login"
+							]
+						},
+						"description": "Autenticação da Aplicação."
+					},
+					"response": [
+						{
+							"name": "Invalid input",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Token de integração.",
+											"type": "text/plain"
+										},
+										"key": "X-APP-TOKEN",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"login\": \"<string>\",\n    \"senha\": \"<string>\",\n    \"id\": \"<number>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/externo/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"externo",
+										"login"
+									]
+								}
+							},
+							"status": "Method Not Allowed",
+							"code": 405,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Token da autenticação que deve ser enviado no header dos demais endpoints.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Token de integração.",
+											"type": "text/plain"
+										},
+										"key": "X-APP-TOKEN",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"login\": \"<string>\",\n    \"senha\": \"<string>\",\n    \"id\": \"<number>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/externo/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"externo",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"access_token\": \"<string>\",\n \"token_type\": \"<string>\",\n \"expires_in\": \"<number>\",\n \"user\": {\n  \"id\": \"<number>\",\n  \"nome\": \"<string>\",\n  \"id_paciente\": \"<number>\"\n },\n \"unidade\": {\n  \"nome\": \"<string>\"\n }\n}"
+						},
+						{
+							"name": "dados inválidos.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "Token de integração.",
+											"type": "text/plain"
+										},
+										"key": "X-APP-TOKEN",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"login\": \"<string>\",\n    \"senha\": \"<string>\",\n    \"id\": \"<number>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/externo/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"externo",
+										"login"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "paciente",
+			"item": [
+				{
+					"name": "Atualização dos dados do paciente",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Rafael da Mata Neri Kielman\",\n    \"sexo\": \"M\",\n    \"dt_nasc\": \"1983-03-01\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/paciente",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"paciente"
+							]
+						},
+						"description": "Realiza a atualização dos dados do paciente"
+					},
+					"response": [
+						{
+							"name": "requisição executada com sucesso.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id_origem\": \"<integer>\",\n    \"nome\": \"<string>\",\n    \"sexo\": \"<string>\",\n    \"dt_nasc\": \"<string>\",\n    \"mae\": \"<string>\",\n    \"docs\": {\n        \"cpf\": \"<string>\",\n        \"rg\": \"<string>\"\n    },\n    \"contatos\": {\n        \"celular\": \"<string>\",\n        \"telefone\": \"<string>\",\n        \"email\": \"<string>\"\n    },\n    \"endereco\": {\n        \"cep\": \"<string>\",\n        \"endereco\": \"<string>\",\n        \"numero\": \"<string>\",\n        \"complemento\": \"<string>\",\n        \"bairro\": \"<string>\",\n        \"cidade\": \"<string>\",\n        \"uf\": \"<string>\"\n    },\n    \"convenio\": {\n        \"id\": \"<string>\",\n        \"reg_ans\": \"<string>\",\n        \"matricula\": \"<string>\",\n        \"validade\": \"<string>\",\n        \"id_plano\": \"<string>\"\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/paciente",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"paciente"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id_origem\": \"<integer>\",\n \"nome\": \"<string>\",\n \"sexo\": \"<string>\",\n \"dt_nasc\": \"<string>\",\n \"mae\": \"<string>\",\n \"docs\": {\n  \"cpf\": \"<string>\",\n  \"rg\": \"<string>\"\n },\n \"contatos\": {\n  \"celular\": \"<string>\",\n  \"telefone\": \"<string>\",\n  \"email\": \"<string>\"\n },\n \"endereco\": {\n  \"cep\": \"<string>\",\n  \"endereco\": \"<string>\",\n  \"numero\": \"<string>\",\n  \"complemento\": \"<string>\",\n  \"bairro\": \"<string>\",\n  \"cidade\": \"<string>\",\n  \"uf\": \"<string>\"\n },\n \"convenio\": {\n  \"id\": \"<string>\",\n  \"reg_ans\": \"<string>\",\n  \"matricula\": \"<string>\",\n  \"validade\": \"<string>\",\n  \"id_plano\": \"<string>\"\n }\n}"
+						},
+						{
+							"name": "credenciais inválidas.",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id_origem\": \"<integer>\",\n    \"nome\": \"<string>\",\n    \"sexo\": \"<string>\",\n    \"dt_nasc\": \"<string>\",\n    \"mae\": \"<string>\",\n    \"docs\": {\n        \"cpf\": \"<string>\",\n        \"rg\": \"<string>\"\n    },\n    \"contatos\": {\n        \"celular\": \"<string>\",\n        \"telefone\": \"<string>\",\n        \"email\": \"<string>\"\n    },\n    \"endereco\": {\n        \"cep\": \"<string>\",\n        \"endereco\": \"<string>\",\n        \"numero\": \"<string>\",\n        \"complemento\": \"<string>\",\n        \"bairro\": \"<string>\",\n        \"cidade\": \"<string>\",\n        \"uf\": \"<string>\"\n    },\n    \"convenio\": {\n        \"id\": \"<string>\",\n        \"reg_ans\": \"<string>\",\n        \"matricula\": \"<string>\",\n        \"validade\": \"<string>\",\n        \"id_plano\": \"<string>\"\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/paciente",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"paciente"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Invalid input",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id_origem\": \"<integer>\",\n    \"nome\": \"<string>\",\n    \"sexo\": \"<string>\",\n    \"dt_nasc\": \"<string>\",\n    \"mae\": \"<string>\",\n    \"docs\": {\n        \"cpf\": \"<string>\",\n        \"rg\": \"<string>\"\n    },\n    \"contatos\": {\n        \"celular\": \"<string>\",\n        \"telefone\": \"<string>\",\n        \"email\": \"<string>\"\n    },\n    \"endereco\": {\n        \"cep\": \"<string>\",\n        \"endereco\": \"<string>\",\n        \"numero\": \"<string>\",\n        \"complemento\": \"<string>\",\n        \"bairro\": \"<string>\",\n        \"cidade\": \"<string>\",\n        \"uf\": \"<string>\"\n    },\n    \"convenio\": {\n        \"id\": \"<string>\",\n        \"reg_ans\": \"<string>\",\n        \"matricula\": \"<string>\",\n        \"validade\": \"<string>\",\n        \"id_plano\": \"<string>\"\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/paciente",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"paciente"
+									]
+								}
+							},
+							"status": "Method Not Allowed",
+							"code": 405,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Obter dados do paciente",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/paciente",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"paciente"
+							]
+						},
+						"description": "Realiza a consulta do paciente"
+					},
+					"response": [
+						{
+							"name": "credenciais inválidas.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/paciente",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"paciente"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "requisição executada com sucesso.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/paciente",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"paciente"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id_origem\": \"<integer>\",\n \"nome\": \"<string>\",\n \"sexo\": \"<string>\",\n \"dt_nasc\": \"<string>\",\n \"mae\": \"<string>\",\n \"docs\": {\n  \"cpf\": \"<string>\",\n  \"rg\": \"<string>\"\n },\n \"contatos\": {\n  \"celular\": \"<string>\",\n  \"telefone\": \"<string>\",\n  \"email\": \"<string>\"\n },\n \"endereco\": {\n  \"cep\": \"<string>\",\n  \"endereco\": \"<string>\",\n  \"numero\": \"<string>\",\n  \"complemento\": \"<string>\",\n  \"bairro\": \"<string>\",\n  \"cidade\": \"<string>\",\n  \"uf\": \"<string>\"\n },\n \"convenio\": {\n  \"id\": \"<string>\",\n  \"reg_ans\": \"<string>\",\n  \"matricula\": \"<string>\",\n  \"validade\": \"<string>\",\n  \"id_plano\": \"<string>\"\n }\n}"
+						},
+						{
+							"name": "Invalid input",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/paciente",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"paciente"
+									]
+								}
+							},
+							"status": "Method Not Allowed",
+							"code": 405,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "agenda",
+			"item": [
+				{
+					"name": "consulta dos horários disponíveis para marcação.",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/agenda/horarios?especialidade=225155&inicio=2020-10-28&fim=2020-10-28",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"agenda",
+								"horarios"
+							],
+							"query": [
+								{
+									"key": "especialidade",
+									"value": "225155",
+									"description": "CBOS da especialidade. Obrigatório somente se marcação de consulta."
+								},
+								{
+									"key": "exame",
+									"value": "<string>",
+									"description": "Código do exame. Obrigatório somente se marcação de exame.",
+									"disabled": true
+								},
+								{
+									"key": "inicio",
+									"value": "2020-10-28",
+									"description": "Data inicial da busca. Se não informado, busca-se a partir da data atual."
+								},
+								{
+									"key": "fim",
+									"value": "2020-10-28",
+									"description": "Data final da busca. Se não informado, busca-se até 10 dias em relação a data inicial."
+								},
+								{
+									"key": "crm",
+									"value": "<string>",
+									"description": "Filtra o médico pelo CRM informado. (opcional)",
+									"disabled": true
+								},
+								{
+									"key": "cnes",
+									"value": "<string>",
+									"description": "Filtra o unidade pelo CNES informado. (opcional)",
+									"disabled": true
+								},
+								{
+									"key": "plano",
+									"value": "<string>",
+									"description": "Filtra operadora/plano. (opcional)",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Consulta dos horários disponíveis para marcação."
+					},
+					"response": [
+						{
+							"name": "Invalid input",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/agenda/horarios?especialidade=<string>&exame=<string>&inicio=<string>&fim=<string>&crm=<string>&cnes=<string>&plano=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"agenda",
+										"horarios"
+									],
+									"query": [
+										{
+											"key": "especialidade",
+											"value": "<string>"
+										},
+										{
+											"key": "exame",
+											"value": "<string>"
+										},
+										{
+											"key": "inicio",
+											"value": "<string>"
+										},
+										{
+											"key": "fim",
+											"value": "<string>"
+										},
+										{
+											"key": "crm",
+											"value": "<string>"
+										},
+										{
+											"key": "cnes",
+											"value": "<string>"
+										},
+										{
+											"key": "plano",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Method Not Allowed",
+							"code": 405,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "procedimento não identificado. Vai ocorrer se o procedimento de consulta não for identificado.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/agenda/horarios?especialidade=<string>&exame=<string>&inicio=<string>&fim=<string>&crm=<string>&cnes=<string>&plano=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"agenda",
+										"horarios"
+									],
+									"query": [
+										{
+											"key": "especialidade",
+											"value": "<string>"
+										},
+										{
+											"key": "exame",
+											"value": "<string>"
+										},
+										{
+											"key": "inicio",
+											"value": "<string>"
+										},
+										{
+											"key": "fim",
+											"value": "<string>"
+										},
+										{
+											"key": "crm",
+											"value": "<string>"
+										},
+										{
+											"key": "cnes",
+											"value": "<string>"
+										},
+										{
+											"key": "plano",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "requisição executada com sucesso.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/agenda/horarios?especialidade=<string>&exame=<string>&inicio=<string>&fim=<string>&crm=<string>&cnes=<string>&plano=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"agenda",
+										"horarios"
+									],
+									"query": [
+										{
+											"key": "especialidade",
+											"value": "<string>"
+										},
+										{
+											"key": "exame",
+											"value": "<string>"
+										},
+										{
+											"key": "inicio",
+											"value": "<string>"
+										},
+										{
+											"key": "fim",
+											"value": "<string>"
+										},
+										{
+											"key": "crm",
+											"value": "<string>"
+										},
+										{
+											"key": "cnes",
+											"value": "<string>"
+										},
+										{
+											"key": "plano",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"procedimento\": \"<string>\",\n \"horarios\": [\n  {\n   \"id\": \"<string>\",\n   \"data\": \"<string>\",\n   \"procedimento\": \"<string>\",\n   \"horarios\": \"<object>\",\n   \"profissional\": {\n    \"id\": \"<string>\",\n    \"tratamento\": \"<string>\",\n    \"numero\": \"<string>\",\n    \"uf\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"selecionado\": \"<boolean>\"\n   },\n   \"unidade\": {\n    \"nome\": \"<string>\",\n    \"cep\": \"<string>\",\n    \"cnes\": \"<string>\",\n    \"local\": \"<string>\"\n   }\n  },\n  {\n   \"id\": \"<string>\",\n   \"data\": \"<string>\",\n   \"procedimento\": \"<string>\",\n   \"horarios\": \"<object>\",\n   \"profissional\": {\n    \"id\": \"<string>\",\n    \"tratamento\": \"<string>\",\n    \"numero\": \"<string>\",\n    \"uf\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"selecionado\": \"<boolean>\"\n   },\n   \"unidade\": {\n    \"nome\": \"<string>\",\n    \"cep\": \"<string>\",\n    \"cnes\": \"<string>\",\n    \"local\": \"<string>\"\n   }\n  }\n ]\n}"
+						}
+					]
+				},
+				{
+					"name": "confirma a marcação do horário..",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"procedimento\": \"<string>\",\n    \"id\": \"<string>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/agenda/horario",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"agenda",
+								"horario"
+							]
+						},
+						"description": "realiza a marcação do horário na agenda do médico."
+					},
+					"response": [
+						{
+							"name": "Invalid input",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"procedimento\": \"<string>\",\n    \"id\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/agenda/horario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"agenda",
+										"horario"
+									]
+								}
+							},
+							"status": "Method Not Allowed",
+							"code": 405,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "requisição executada com sucesso.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"procedimento\": \"<string>\",\n    \"id\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/agenda/horario",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"agenda",
+										"horario"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id\": \"<string>\",\n \"status\": \"<string>\",\n \"tipo\": \"<string>\",\n \"data\": \"<string>\",\n \"hora\": \"<string>\",\n \"solicitante\": {\n  \"id\": \"<string>\",\n  \"tratamento\": \"<string>\",\n  \"numero\": \"<string>\",\n  \"uf\": \"<string>\",\n  \"nome\": \"<string>\",\n  \"selecionado\": \"<boolean>\"\n },\n \"realizador\": {\n  \"id\": \"<string>\",\n  \"tratamento\": \"<string>\",\n  \"numero\": \"<string>\",\n  \"uf\": \"<string>\",\n  \"nome\": \"<string>\",\n  \"selecionado\": \"<boolean>\"\n },\n \"unidade\": {\n  \"nome\": \"<string>\",\n  \"cep\": \"<string>\",\n  \"cnes\": \"<string>\",\n  \"local\": \"<string>\"\n },\n \"procedimento\": [\n  {\n   \"id\": \"<string>\",\n   \"descr\": \"<string>\",\n   \"abrev\": \"<string>\",\n   \"tuss\": \"<string>\",\n   \"sus\": \"<string>\",\n   \"especialidade\": {\n    \"codigo\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"cbos\": \"<string>\"\n   }\n  },\n  {\n   \"id\": \"<string>\",\n   \"descr\": \"<string>\",\n   \"abrev\": \"<string>\",\n   \"tuss\": \"<string>\",\n   \"sus\": \"<string>\",\n   \"especialidade\": {\n    \"codigo\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"cbos\": \"<string>\"\n   }\n  }\n ],\n \"especialidade\": [\n  {\n   \"codigo\": \"<string>\",\n   \"nome\": \"<string>\",\n   \"cbos\": \"<string>\"\n  },\n  {\n   \"codigo\": \"<string>\",\n   \"nome\": \"<string>\",\n   \"cbos\": \"<string>\"\n  }\n ]\n}"
+						}
+					]
+				},
+				{
+					"name": "lista os procedimentos de consulta disponíveis na base.",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/agenda/consultas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"agenda",
+								"consultas"
+							]
+						},
+						"description": "Lista os procedimentos de consulta."
+					},
+					"response": [
+						{
+							"name": "Invalid input",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/agenda/consultas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"agenda",
+										"consultas"
+									]
+								}
+							},
+							"status": "Method Not Allowed",
+							"code": 405,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "lista de consultas.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/agenda/consultas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"agenda",
+										"consultas"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"id\": \"<string>\",\n  \"descr\": \"<string>\",\n  \"abrev\": \"<string>\",\n  \"tuss\": \"<string>\",\n  \"sus\": \"<string>\",\n  \"especialidade\": {\n   \"codigo\": \"<string>\",\n   \"nome\": \"<string>\",\n   \"cbos\": \"<string>\"\n  }\n },\n {\n  \"id\": \"<string>\",\n  \"descr\": \"<string>\",\n  \"abrev\": \"<string>\",\n  \"tuss\": \"<string>\",\n  \"sus\": \"<string>\",\n  \"especialidade\": {\n   \"codigo\": \"<string>\",\n   \"nome\": \"<string>\",\n   \"cbos\": \"<string>\"\n  }\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "lista as especialidades disponíveis na base.",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/agenda/especialidades",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"agenda",
+								"especialidades"
+							]
+						},
+						"description": "Lista as especialidades."
+					},
+					"response": [
+						{
+							"name": "Invalid input",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/agenda/especialidades",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"agenda",
+										"especialidades"
+									]
+								}
+							},
+							"status": "Method Not Allowed",
+							"code": 405,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "lista de especialidades.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/agenda/especialidades",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"agenda",
+										"especialidades"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"codigo\": \"<string>\",\n  \"nome\": \"<string>\",\n  \"cbos\": \"<string>\"\n },\n {\n  \"codigo\": \"<string>\",\n  \"nome\": \"<string>\",\n  \"cbos\": \"<string>\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "lista os exames disponíveis na base.",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/agenda/exames",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"agenda",
+								"exames"
+							]
+						},
+						"description": "Lista os exames."
+					},
+					"response": [
+						{
+							"name": "lista de exames.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/agenda/exames",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"agenda",
+										"exames"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"id\": \"<string>\",\n  \"descr\": \"<string>\",\n  \"abrev\": \"<string>\",\n  \"tuss\": \"<string>\",\n  \"sus\": \"<string>\",\n  \"especialidade\": {\n   \"codigo\": \"<string>\",\n   \"nome\": \"<string>\",\n   \"cbos\": \"<string>\"\n  }\n },\n {\n  \"id\": \"<string>\",\n  \"descr\": \"<string>\",\n  \"abrev\": \"<string>\",\n  \"tuss\": \"<string>\",\n  \"sus\": \"<string>\",\n  \"especialidade\": {\n   \"codigo\": \"<string>\",\n   \"nome\": \"<string>\",\n   \"cbos\": \"<string>\"\n  }\n }\n]"
+						},
+						{
+							"name": "Invalid input",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/agenda/exames",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"agenda",
+										"exames"
+									]
+								}
+							},
+							"status": "Method Not Allowed",
+							"code": 405,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "checkin",
+			"item": [
+				{
+					"name": "realiza o check-in de atendimento do paciente.",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"<number>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/checkin",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"checkin"
+							]
+						},
+						"description": "Realiza o check-in de atendimento do paciente."
+					},
+					"response": [
+						{
+							"name": "requisição executada com sucesso.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"<number>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/checkin",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"checkin"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"<string>\""
+						},
+						{
+							"name": "Dados inválidos",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"<number>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/checkin",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"checkin"
+									]
+								}
+							},
+							"status": "Method Not Allowed",
+							"code": 405,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "realiza o cancelamento do check-in de atendimento do paciente.",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"<number>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/checkin",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"checkin"
+							]
+						},
+						"description": "Realiza o cancelamento do check-in de atendimento do paciente. Somente se o atendimento não tiver sido iniciado."
+					},
+					"response": [
+						{
+							"name": "requisição executada com sucesso.",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"<number>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/checkin",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"checkin"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"<string>\""
+						},
+						{
+							"name": "Dados inválidos",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"<number>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/checkin",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"checkin"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Verifica se a API está no ar.",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/live",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"live"
+					]
+				},
+				"description": "Verifica se a API está no ar e exibe a versão."
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/live",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"live"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Invalid input",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/live",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"live"
+							]
+						}
+					},
+					"status": "Method Not Allowed",
+					"code": 405,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Obter os vouchers do paciente (agendamentos)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/vouchers",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"vouchers"
+					]
+				},
+				"description": "Realiza a consulta de agendamentos."
+			},
+			"response": [
+				{
+					"name": "requisição executada com sucesso.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "<string>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/vouchers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"vouchers"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n {\n  \"id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"tipo\": \"<string>\",\n  \"data\": \"<string>\",\n  \"hora\": \"<string>\",\n  \"solicitante\": {\n   \"id\": \"<string>\",\n   \"tratamento\": \"<string>\",\n   \"numero\": \"<string>\",\n   \"uf\": \"<string>\",\n   \"nome\": \"<string>\",\n   \"selecionado\": \"<boolean>\"\n  },\n  \"realizador\": {\n   \"id\": \"<string>\",\n   \"tratamento\": \"<string>\",\n   \"numero\": \"<string>\",\n   \"uf\": \"<string>\",\n   \"nome\": \"<string>\",\n   \"selecionado\": \"<boolean>\"\n  },\n  \"unidade\": {\n   \"nome\": \"<string>\",\n   \"cep\": \"<string>\",\n   \"cnes\": \"<string>\",\n   \"local\": \"<string>\"\n  },\n  \"procedimento\": [\n   {\n    \"id\": \"<string>\",\n    \"descr\": \"<string>\",\n    \"abrev\": \"<string>\",\n    \"tuss\": \"<string>\",\n    \"sus\": \"<string>\",\n    \"especialidade\": {\n     \"codigo\": \"<string>\",\n     \"nome\": \"<string>\",\n     \"cbos\": \"<string>\"\n    }\n   },\n   {\n    \"id\": \"<string>\",\n    \"descr\": \"<string>\",\n    \"abrev\": \"<string>\",\n    \"tuss\": \"<string>\",\n    \"sus\": \"<string>\",\n    \"especialidade\": {\n     \"codigo\": \"<string>\",\n     \"nome\": \"<string>\",\n     \"cbos\": \"<string>\"\n    }\n   }\n  ],\n  \"especialidade\": [\n   {\n    \"codigo\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"cbos\": \"<string>\"\n   },\n   {\n    \"codigo\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"cbos\": \"<string>\"\n   }\n  ]\n },\n {\n  \"id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"tipo\": \"<string>\",\n  \"data\": \"<string>\",\n  \"hora\": \"<string>\",\n  \"solicitante\": {\n   \"id\": \"<string>\",\n   \"tratamento\": \"<string>\",\n   \"numero\": \"<string>\",\n   \"uf\": \"<string>\",\n   \"nome\": \"<string>\",\n   \"selecionado\": \"<boolean>\"\n  },\n  \"realizador\": {\n   \"id\": \"<string>\",\n   \"tratamento\": \"<string>\",\n   \"numero\": \"<string>\",\n   \"uf\": \"<string>\",\n   \"nome\": \"<string>\",\n   \"selecionado\": \"<boolean>\"\n  },\n  \"unidade\": {\n   \"nome\": \"<string>\",\n   \"cep\": \"<string>\",\n   \"cnes\": \"<string>\",\n   \"local\": \"<string>\"\n  },\n  \"procedimento\": [\n   {\n    \"id\": \"<string>\",\n    \"descr\": \"<string>\",\n    \"abrev\": \"<string>\",\n    \"tuss\": \"<string>\",\n    \"sus\": \"<string>\",\n    \"especialidade\": {\n     \"codigo\": \"<string>\",\n     \"nome\": \"<string>\",\n     \"cbos\": \"<string>\"\n    }\n   },\n   {\n    \"id\": \"<string>\",\n    \"descr\": \"<string>\",\n    \"abrev\": \"<string>\",\n    \"tuss\": \"<string>\",\n    \"sus\": \"<string>\",\n    \"especialidade\": {\n     \"codigo\": \"<string>\",\n     \"nome\": \"<string>\",\n     \"cbos\": \"<string>\"\n    }\n   }\n  ],\n  \"especialidade\": [\n   {\n    \"codigo\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"cbos\": \"<string>\"\n   },\n   {\n    \"codigo\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"cbos\": \"<string>\"\n   }\n  ]\n }\n]"
+				},
+				{
+					"name": "Invalid input",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "<string>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/vouchers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"vouchers"
+							]
+						}
+					},
+					"status": "Method Not Allowed",
+					"code": 405,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Exclusão do voucher (agendamento)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{access_token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"<string>\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/voucher",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"voucher"
+					]
+				},
+				"description": "Realiza a exclusão do voucher."
+			},
+			"response": [
+				{
+					"name": "Invalid input",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "<string>"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"<string>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/voucher",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"voucher"
+							]
+						}
+					},
+					"status": "Method Not Allowed",
+					"code": 405,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "requisição executada com sucesso.",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "<string>"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"<string>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/voucher",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"voucher"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "\"<string>\""
+				}
+			]
+		},
+		{
+			"name": "lista de convênios.",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/convenios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"convenios"
+					]
+				},
+				"description": "Lista de convênios."
+			},
+			"response": [
+				{
+					"name": "lista com sucesso.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "<string>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/convenios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"convenios"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n {\n  \"id\": \"<string>\",\n  \"nome\": \"<string>\",\n  \"reg_ans\": \"<string>\",\n  \"planos\": [\n   {\n    \"id\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"codigo\": \"<string>\"\n   },\n   {\n    \"id\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"codigo\": \"<string>\"\n   }\n  ]\n },\n {\n  \"id\": \"<string>\",\n  \"nome\": \"<string>\",\n  \"reg_ans\": \"<string>\",\n  \"planos\": [\n   {\n    \"id\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"codigo\": \"<string>\"\n   },\n   {\n    \"id\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"codigo\": \"<string>\"\n   }\n  ]\n }\n]"
+				},
+				{
+					"name": "Invalid input",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "<string>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/convenios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"convenios"
+							]
+						}
+					},
+					"status": "Method Not Allowed",
+					"code": 405,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"id": "baseUrl",
+			"key": "baseUrl",
+			"value": "https://api-externa.klingo.app/api",
+			"type": "string"
+		}
+	]
+}

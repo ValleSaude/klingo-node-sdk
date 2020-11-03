@@ -136,6 +136,29 @@ function client(params) {
 }
 
 /**
+ * authenticated
+ * @param {Object} opts
+ * @return {Boolean}
+ */
+function authenticated(opts) {
+    if (!isObject(opts)) {
+        return;
+    }
+
+    const REQUIRED_PARAMS = ["authentication"];
+
+    opts = Object.keys(opts);
+
+    for (let i in REQUIRED_PARAMS) {
+        if (opts.indexOf(REQUIRED_PARAMS[i]) === -1) {
+            return;
+        }
+    }
+
+    return true;
+}
+
+/**
  * exports
  */
 module.exports = {
@@ -153,5 +176,6 @@ module.exports = {
     isDate,
     isEmail,
     isEquivalent,
-    client
+    client,
+    authenticated
 };

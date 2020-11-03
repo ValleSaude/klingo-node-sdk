@@ -1,7 +1,7 @@
 const config = require('./config')
 const klingo = require('../src')
 
-describe('Client', function () {
+const clienttests = () => {
 
     it('success', function () {
         const client = klingo.client(config.klingo)
@@ -28,4 +28,8 @@ describe('Client', function () {
         }
     })
 
-})
+}
+
+describe('Client', clienttests)
+
+module.exports = clienttests;

@@ -87,6 +87,24 @@ const patient_id_wrong = {
 };
 
 /**
+ * Patient Update
+ */
+const patient_update = {
+    "nome": "Rafael da Mata Neri Kielman",
+    "sexo": "M",
+    "dt_nasc": "1983-03-01"
+}
+
+/**
+ * Schedule Available
+ */
+const available = {
+    "especialidade": 225155,
+    "inicio": (new Date()).toISOString().split('T')[0],
+    "fim": (new Date()).toISOString().split('T')[0]
+}
+
+/**
  * exports
  */
 module.exports = {
@@ -94,5 +112,7 @@ module.exports = {
     patient,
     patient_wrong,
     patient_id,
-    patient_id_wrong
+    patient_id_wrong,
+    patient_update,
+    available
 };

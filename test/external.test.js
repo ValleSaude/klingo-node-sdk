@@ -1,32 +1,32 @@
 const config = require("./config");
 const klingo = require("../src");
 
-describe("External", function () {
+const externaltests = () => {
 
-    describe('Register', function () {
-        it("success with correct data input", async function () {
-            const client = klingo.client(config.klingo);
-            const patient = await client.external.register(config.patient);
+    // describe('Register', function () {
+    //     it("success with correct data input", async function () {
+    //         const client = klingo.client(config.klingo);
+    //         const patient = await client.external.register(config.patient);
 
-            expect(typeof patient).toEqual("object");
-            expect(patient).toHaveProperty("content");
-            expect(patient.content).toHaveProperty("id");
-        });
+    //         expect(typeof patient).toEqual("object");
+    //         expect(patient).toHaveProperty("content");
+    //         expect(patient.content).toHaveProperty("id");
+    //     });
 
-        it("error with incorrect data input", async function () {
-            try {
-                const client = klingo.client(config.klingo);
-                const patient = await client.external.register(config.patient_wrong);
-            } catch (e) {
-                expect(typeof e).toEqual("object");
-                expect(e).toHaveProperty("name", "KlingoError");
-                expect(e).toHaveProperty("status", "error");
-                expect(e).toHaveProperty("statusCode", 403);
-                expect(e).toHaveProperty("content");
-                expect(Array.isArray(e.content)).toEqual(false);
-            }
-        });
-    });
+    //     it("error with incorrect data input", async function () {
+    //         try {
+    //             const client = klingo.client(config.klingo);
+    //             const patient = await client.external.register(config.patient_wrong);
+    //         } catch (e) {
+    //             expect(typeof e).toEqual("object");
+    //             expect(e).toHaveProperty("name", "KlingoError");
+    //             expect(e).toHaveProperty("status", "error");
+    //             expect(e).toHaveProperty("statusCode", 403);
+    //             expect(e).toHaveProperty("content");
+    //             expect(Array.isArray(e.content)).toEqual(false);
+    //         }
+    //     });
+    // });
 
     describe('Authenticate', function () {
         it("success with correct data input", async function () {
@@ -57,4 +57,8 @@ describe("External", function () {
         });
     });
 
-});
+}
+
+describe('External', externaltests)
+
+module.exports = externaltests;

@@ -8,4 +8,15 @@ module.exports = {
     register: "externo/register",
     authenticate: "externo/login",
   },
+  patient: {
+    get: "paciente",
+    vouchers: "vouchers",
+    healthInsurance: "convenios",
+  },
+  schedule: {
+    available: "agenda/horarios",
+    services: "agenda/consultas",
+    specialties: "agenda/especialidades",
+    exams: "agenda/exames",
+  }
 };

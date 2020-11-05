@@ -10,7 +10,6 @@ module.exports = {
   },
   patient: {
     get: "paciente",
-    vouchers: "vouchers",
     healthInsurance: "convenios",
   },
   schedule: {
@@ -18,5 +17,8 @@ module.exports = {
     services: "agenda/consultas",
     specialties: "agenda/especialidades",
     exams: "agenda/exames",
+    confirm: "agenda/horario",
+    vouchers: "vouchers",
+    voucher: "voucher",
   }
 };

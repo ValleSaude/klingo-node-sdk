@@ -99,9 +99,17 @@ const patient_update = {
  * Schedule Available
  */
 const available = {
-    "especialidade": 225155,
+    "especialidade": 225275,
     "inicio": (new Date()).toISOString().split('T')[0],
     "fim": (new Date()).toISOString().split('T')[0]
+}
+
+/**
+ * Schedule Confirm
+ */
+const confirm = {
+    "procedimento": 1123,
+    "id": "2020-11-04|35|151|2|15:10",
 }
 
 /**
@@ -114,5 +122,6 @@ module.exports = {
     patient_id,
     patient_id_wrong,
     patient_update,
-    available
+    available,
+    confirm,
 };

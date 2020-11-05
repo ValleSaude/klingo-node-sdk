@@ -7,15 +7,15 @@ Aplicação em desenvolvimento. Recursos básicos para integração com o Klingo
 - [x] Externo
 	- [x] Realizar Cadastro de Paciente
 	- [x] Realizar Autenticação da Aplicação Identificando Cliente
-- [ ] Paciente
+- [x] Paciente
 	- [x] Atualizar Dados do Paciente
 	- [x] Obter Dados do Paciente
-	- [ ] Obter Vouchers do Paciente
-	- [ ] Excluir Voucher do Paciente
-	- [ ] Listar Convênios
-- [ ] Agenda
-	- [x ] Consultar Horários Disponíveis
-	- [ ] Confirmar Marcação de Horário
+	- [x] Obter Vouchers do Paciente
+	- [x] Excluir Voucher do Paciente
+	- [x] Listar Convênios
+- [x] Agenda
+	- [x] Consultar Horários Disponíveis
+	- [x] Confirmar Marcação de Horário
 	- [x] Listar Procedimentos
 	- [x] Listar Especialidades
 	- [x] Listar Exames

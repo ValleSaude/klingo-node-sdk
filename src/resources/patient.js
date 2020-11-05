@@ -90,7 +90,7 @@ const update = async (opts, params) => {
   }
 };
 
-const listExams = async (opts) => {
+const listHealthInsurance = async opts => {
   /**
   * Validate opts
   */
@@ -105,7 +105,7 @@ const listExams = async (opts) => {
 
     const response = await request({
       ...opts,
-      url: `${opts.base.default}/${config.patient.vouchers}`,
+      url: `${opts.base.default}/${config.patient.healthInsurance}`,
       method: "GET"
     });
 
@@ -114,7 +114,6 @@ const listExams = async (opts) => {
       content: JSON.parse(response.content)
     };
   } catch (e) {
-    console.log(e)
     const error = { ...e.response };
 
     if (error.content && error.content == "Unauthorized") {
@@ -134,8 +133,8 @@ const listExams = async (opts) => {
   }
 };
 
-
 module.exports = {
   get,
-  update
+  update,
+  listHealthInsurance,
 };

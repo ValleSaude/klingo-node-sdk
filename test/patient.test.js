@@ -44,6 +44,28 @@ const patienttests = () => {
             }
         })
     })
+
+    describe('List health insurance', function () {
+        it('success', async function () {
+            const client = klingo.client(config.klingo)
+            const authentication = await client.external.authenticate({ id: config.patient_id.id, login: config.klingo.login, senha: config.klingo.password });
+            const healthInsurance = await client.patient.listHealthInsurance();
+
+            expect(typeof healthInsurance).toEqual("object");
+            expect(healthInsurance).toHaveProperty("content");
+            expect(Array.isArray(healthInsurance.content)).toEqual(true);
+        })
+
+        it('Error to list health insurance without authentication', async function () {
+            const client = klingo.client(config.klingo)
+            try {
+                const healthInsurance = await client.patient.listHealthInsurance();
+            } catch (e) {
+                expect(e).toBeInstanceOf(TypeError)
+            }
+        })
+    })
+
 }
 
 describe('Patient', patienttests)

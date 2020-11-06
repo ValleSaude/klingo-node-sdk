@@ -19,9 +19,9 @@ Aplicação em desenvolvimento. Recursos básicos para integração com o Klingo
 	- [x] Listar Procedimentos
 	- [x] Listar Especialidades
 	- [x] Listar Exames
-- [ ] Check-In
-	- [ ] Realizar Check-In
-	- [ ] Cancelar Check-In
+- [x] Check-In
+	- [x] Realizar Check-In
+	- [x] Cancelar Check-In
 
 ## Instalação
 ```

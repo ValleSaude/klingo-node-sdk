@@ -3,4 +3,5 @@ module.exports = {
 	external: require('./external'),
 	patient: require('./patient'),
 	schedule: require('./schedule'),
+	checkin: require('./checkin'),
 }

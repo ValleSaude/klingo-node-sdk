@@ -3,29 +3,34 @@ const klingo = require("../src");
 
 const verifytests = () => {
 
-	it("success", async function () {
-		const client = klingo.client(config.klingo);
-		const verify = await client.verify.get();
+  it("success", async function () {
+    const client = new klingo.Client(config.klingo);
+    const verify = await client.verify.get();
+    console.log(verify);
 
-		expect(typeof verify).toEqual("object");
-		expect(verify).toHaveProperty("content");
-		expect(verify.content).toEqual('OK');
-	});
+    expect(typeof verify).toEqual("object");
+    expect(verify).toHaveProperty("content");
+    expect(verify.content).toEqual('OK');
+  });
 
-	it("error", async function () {
-		try {
-			const configError = { ...config.klingo, xAppToken: "", env: "" };
-			const client = klingo.client(configError);
-			const verify = await client.verify.get();
-		} catch (e) {
-			expect(typeof e).toEqual("object");
-			expect(e).toHaveProperty("name", "KlingoError");
-			expect(e).toHaveProperty("status", "error");
-			expect(e).toHaveProperty("statusCode", 500);
-			expect(e).toHaveProperty("content");
-			expect(Array.isArray(e.content)).toEqual(false);
-		}
-	});
+  it("error", async function () {
+    try {
+      const configError = {
+        ...config.klingo,
+        xAppToken: "",
+        env: ""
+      };
+      const client = new klingo.Client(configError);
+      const verify = await client.verify.get();
+    } catch (error) {
+      expect(typeof error).toEqual("object");
+      expect(error).toHaveProperty("name", "KlingoError");
+      expect(error).toHaveProperty("status", "error");
+      expect(error).toHaveProperty("statusCode", 500);
+      expect(error).toHaveProperty("content");
+      expect(Array.isArray(error.content)).toEqual(false);
+    }
+  });
 
 }
 

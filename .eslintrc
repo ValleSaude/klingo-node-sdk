@@ -1,0 +1,12 @@
+{
+  "extends": "loopback",
+  "rules": {
+    "max-len": 0,
+    "comma-dangle": "off",
+    "object-curly-spacing": "off",
+    "no-var": "error"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017
+  }
+}

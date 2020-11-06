@@ -1,25 +1,17 @@
-const request = require("request-promise");
 const config = require("../config");
-const KlingoError = require("../Error");
+const axios = require("axios").default;
 
-const get = async opts => {
-  try {
-    opts.headers['Content-Type'] = 'text/html; charset=UTF-8';
-    const response = await request({
-      ...opts,
-      url: `${opts.base.default}/${config.verify}`,
-      method: "GET"
-    });
-
-    return {
-      ...response
-    };
-  } catch (e) {
-    const error = { ...e.response };
-    throw new KlingoError(error);
+class Verify {
+  constructor(client, options) {
+    this.client = client;
+    this.options = options;
   }
-};
 
-module.exports = {
-  get
-};
+  async get() {
+    this.options.headers['Content-Type'] = 'application/json; charset=UTF-8';
+    const response = await axios.get(`${this.options.base.default}/${config.verify}`, this.options);
+    return response.data;
+  };
+}
+
+module.exports = { Verify };

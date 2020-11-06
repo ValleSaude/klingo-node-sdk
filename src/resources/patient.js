@@ -1,140 +1,33 @@
-const request = require("request-promise");
+const axios = require("axios").default;
 const config = require("../config");
-const validate = require("../validate");
-const KlingoError = require("../Error");
 
-const get = async opts => {
-  /**
-  * Validate opts
-  */
-  if (!validate.authenticated(opts)) {
-    throw new TypeError(
-      "Verifique as configurações da requisição"
-    );
+class Patient {
+  constructor(client, options) {
+    this.client = client;
+    this.options = options;
   }
 
-  try {
-    opts.headers['Authorization'] = `${opts.authentication.token_type} ${opts.authentication.access_token}`;
+  async get() {
+    options.headers['Authorization'] = `${this.options.authentication.token_type} ${this.options.authentication.access_token}`;
+    const endpoint = `${this.options.base.default}/${config.patient.get}`;
+    const response = await axios.get(endpoint, this.options);
 
-    const response = await request({
-      ...opts,
-      url: `${opts.base.default}/${config.patient.get}`,
-      method: "GET"
-    });
-
-    return {
-      ...response,
-      content: JSON.parse(response.content)
-    };
-  } catch (e) {
-    const error = { ...e.response };
-
-    if (error.content && error.content == "Unauthorized") {
-      error.content = [
-        {
-          code: 401,
-          message: "Unauthorized"
-        }
-      ];
-    } else if (e.response && e.response.statusCode === 419) {
-      error.content = e.response.body;
-    } else {
-      error.content = JSON.parse(e.response.body);
-    }
-
-    throw new KlingoError(error);
-  }
-};
-
-const update = async (opts, params) => {
-  /**
-  * Validate opts
-  */
-  if (!validate.authenticated(opts)) {
-    throw new TypeError(
-      "Verifique as configurações da requisição"
-    );
+    return response.data;
   }
 
-  try {
-    opts.headers['Authorization'] = `${opts.authentication.token_type} ${opts.authentication.access_token}`;
-
-    const response = await request({
-      ...opts,
-      url: `${opts.base.default}/${config.patient.get}`,
-      body: JSON.stringify(params),
-      method: "PUT"
-    });
-
-    return {
-      ...response,
-      content: JSON.parse(response.content)
-    };
-  } catch (e) {
-    const error = { ...e.response };
-
-    if (error.content && error.content == "Unauthorized") {
-      error.content = [
-        {
-          code: 401,
-          message: "Unauthorized"
-        }
-      ];
-    } else if (e.response && e.response.statusCode === 419) {
-      error.content = e.response.body;
-    } else {
-      error.content = JSON.parse(e.response.body);
-    }
-
-    throw new KlingoError(error);
-  }
-};
-
-const listHealthInsurance = async opts => {
-  /**
-  * Validate opts
-  */
-  if (!validate.authenticated(opts)) {
-    throw new TypeError(
-      "Verifique as configurações da requisição"
-    );
+  async update(body) {
+    options.headers['Authorization'] = `${this.options.authentication.token_type} ${this.options.authentication.access_token}`;
+    const response = await axios.put(`${this.options.base.default}/${config.patient.get}`, body, this.options);
+    return response.data;
   }
 
-  try {
-    opts.headers['Authorization'] = `${opts.authentication.token_type} ${opts.authentication.access_token}`;
+  async listHealthInsurance(options) {
+    options.headers['Authorization'] = `${this.options.authentication.token_type} ${this.options.authentication.access_token}`;
+    const endpoint = `${this.options.base.default}/${config.patient.healthInsurance}`;
+    const response = await axios.get(endpoint, this.options);
 
-    const response = await request({
-      ...opts,
-      url: `${opts.base.default}/${config.patient.healthInsurance}`,
-      method: "GET"
-    });
-
-    return {
-      ...response,
-      content: JSON.parse(response.content)
-    };
-  } catch (e) {
-    const error = { ...e.response };
-
-    if (error.content && error.content == "Unauthorized") {
-      error.content = [
-        {
-          code: 401,
-          message: "Unauthorized"
-        }
-      ];
-    } else if (e.response && e.response.statusCode === 419) {
-      error.content = e.response.body;
-    } else {
-      error.content = JSON.parse(e.response.body);
-    }
-
-    throw new KlingoError(error);
+    return response.data;
   }
-};
+}
 
-module.exports = {
-  get,
-  update,
-  listHealthInsurance,
-};
+module.exports = { Patient };

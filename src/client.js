@@ -1,85 +1,75 @@
+const { External } = require('./resources/external');
+const { Schedule } = require('./resources/schedule');
+const { Patient } = require('./resources/patient');
+const { Verify } = require('./resources/verify');
 const logger = require("./logger");
 const getBaseUrl = require("./utils").getBaseUrl;
 const validate = require("./validate");
-const resources = require("./resources");
 
-module.exports = params => {
-    /**
-     * Validate params
-     */
-    if (!validate.client(params)) {
-        throw new TypeError(
-            "Erro ao conectar com klingo! Verifique as configurações"
-        );
+class Client {
+  constructor(options) {
+    if (!validate.client(options)) {
+      throw new TypeError("Erro ao conectar com klingo! Verifique as configurações");
     }
 
-    /**
-     * Log
-     */
     let log = {
-        log: () => { },
-        info: () => { },
-        error: () => { },
-        success: () => { }
+      log: () => { },
+      info: () => { },
+      error: () => { },
+      success: () => { }
     };
 
-    if (params.debug) {
-        log = logger(params.log, params.debug);
+    if (options.debug) {
+      log = logger(options.log, options.debug);
     }
 
-    /**
-     * Config
-     */
     const config = {
-        logger: log,
-        env: params.env,
-        base: {
-            default: getBaseUrl(params.env, "default")
-        },
-        headers: {
-            "Content-Type": "application/json",
-            "X-APP-TOKEN": params.xAppToken
-        },
-        transform: (body, response, resolveWithFullResponse) => {
-            let status = response.statusCode <= 200 ? "success" : "error";
-
-            if (response.statusCode <= 200) {
+      /*       logger: log,
+            env: options.env, */
+      base: {
+        default: getBaseUrl(options.env, "default")
+      },
+      headers: {
+        'Access-Control-Allow-Methods': 'POST, GET, PATCH, PUT, DELETE, OPTIONS',
+        'Access-Control-Allow-Headers': '*',
+        'Access-Control-Allow-Origin': '*',
+        'Accept': 'application/json',
+        "Content-Type": "application/json",
+        "X-APP-TOKEN": options.xAppToken
+      },
+      /*       transform: (body, response, resolveWithFullResponse) => {
+              let status = response.statusCode <= 200 ? "success" : "error";
+      
+              if (response.statusCode <= 200) {
                 log.info({
-                    statusCode: response.statusCode,
-                    statusMessage: response.statusMessage,
-                    status,
-                    content: body
+                  statusCode: response.statusCode,
+                  statusMessage: response.statusMessage,
+                  status,
+                  content: body
                 });
-            } else {
+              } else {
                 content = content.errors.error;
                 log.error({
-                    statusCode: response.statusCode,
-                    statusMessage: response.statusMessage,
-                    status,
-                    content: body
+                  statusCode: response.statusCode,
+                  statusMessage: response.statusMessage,
+                  status,
+                  content: body
                 });
-            }
-
-            return {
+              }
+      
+              return {
                 statusCode: response.statusCode,
                 status,
                 content: body
-            };
-        }
+              };
+            } */
     };
 
-    /**
-     * Resources
-     */
-    const rs = {};
-    Object.keys(resources).forEach(i => {
-        rs[i] = { ...resources[i] };
-        Object.keys(rs[i]).forEach(r => {
-            if (validate.isFunction(rs[i][r])) {
-                rs[i][r] = rs[i][r].bind(null, config);
-            }
-        });
-    });
+    this.verify = new Verify(this, config);
+    this.external = new External(this, config);
+    this.patient = new Patient(this, config);
+    this.schedule = new Schedule(this, config);
+  }
+}
 
-    return rs;
-};
+module.exports = { Client };

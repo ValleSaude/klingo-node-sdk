@@ -5,8 +5,12 @@ const scheduletests = () => {
 
   describe('Query available times', function () {
     it('success', async function () {
-      const client = klingo.client(config.klingo)
-      const authentication = await client.external.authenticate({ id: config.patient_id.id, login: config.klingo.login, senha: config.klingo.password });
+      const client = new klingo.Client(config.klingo)
+      const authentication = await client.external.authenticate({
+        id: config.patient_id.id,
+        login: config.klingo.login,
+        senha: config.klingo.password
+      });
       const available = await client.schedule.getAvailableTimes(config.available);
 
       expect(typeof available).toEqual("object");
@@ -15,7 +19,7 @@ const scheduletests = () => {
     })
 
     it('Error to get without authentication', async function () {
-      const client = klingo.client(config.klingo)
+      const client = new klingo.Client(config.klingo)
       try {
         const available = await client.schedule.getAvailableTimes();
       } catch (e) {
@@ -26,7 +30,7 @@ const scheduletests = () => {
 
   describe('Query available services on the establishment', function () {
     it('success', async function () {
-      const client = klingo.client(config.klingo)
+      const client = new klingo.Client(config.klingo)
       const authentication = await client.external.authenticate({ id: config.patient_id.id, login: config.klingo.login, senha: config.klingo.password });
       const services = await client.schedule.listServices();
 
@@ -37,7 +41,7 @@ const scheduletests = () => {
     })
 
     it('Error to get without authentication', async function () {
-      const client = klingo.client(config.klingo)
+      const client = new klingo.Client(config.klingo)
       try {
         const available = await client.schedule.listServices();
       } catch (e) {
@@ -48,7 +52,7 @@ const scheduletests = () => {
 
   describe('Query available specialties on the establishment', function () {
     it('success', async function () {
-      const client = klingo.client(config.klingo)
+      const client = new klingo.Client(config.klingo)
       const authentication = await client.external.authenticate({ id: config.patient_id.id, login: config.klingo.login, senha: config.klingo.password });
       const specialties = await client.schedule.listSpecialties();
 
@@ -59,7 +63,7 @@ const scheduletests = () => {
     })
 
     it('Error to get without authentication', async function () {
-      const client = klingo.client(config.klingo)
+      const client = new klingo.Client(config.klingo)
       try {
         const specialties = await client.schedule.listSpecialties();
       } catch (e) {
@@ -70,8 +74,12 @@ const scheduletests = () => {
 
   describe('Query available exams on the establishment', function () {
     it('success', async function () {
-      const client = klingo.client(config.klingo)
-      const authentication = await client.external.authenticate({ id: config.patient_id.id, login: config.klingo.login, senha: config.klingo.password });
+      const client = new klingo.Client(config.klingo)
+      const authentication = await client.external.authenticate({
+        id: config.patient_id.id,
+        login: config.klingo.login,
+        senha: config.klingo.password
+      });
       const exams = await client.schedule.listExams();
 
       expect(typeof exams).toEqual("object");
@@ -81,7 +89,7 @@ const scheduletests = () => {
     })
 
     it('Error to get without authentication', async function () {
-      const client = klingo.client(config.klingo)
+      const client = new klingo.Client(config.klingo)
       try {
         const exams = await client.schedule.listExams();
       } catch (e) {
@@ -92,7 +100,7 @@ const scheduletests = () => {
 
   describe('Confirm appointment', function () {
     it('success', async function () {
-      const client = klingo.client(config.klingo)
+      const client = new klingo.Client(config.klingo)
       const authentication = await client.external.authenticate({ id: config.patient_id.id, login: config.klingo.login, senha: config.klingo.password });
       const available = await client.schedule.getAvailableTimes(config.available);
       const confirm = await client.schedule.confirm({
@@ -105,7 +113,7 @@ const scheduletests = () => {
     })
 
     it('Error to get without authentication', async function () {
-      const client = klingo.client(config.klingo)
+      const client = new klingo.Client(config.klingo)
       try {
         const confirm = await client.schedule.confirm();
       } catch (e) {
@@ -116,7 +124,7 @@ const scheduletests = () => {
 
   describe('List vouchers', function () {
     it('success', async function () {
-      const client = klingo.client(config.klingo)
+      const client = new klingo.Client(config.klingo)
       const authentication = await client.external.authenticate({ id: config.patient_id.id, login: config.klingo.login, senha: config.klingo.password });
       const results = await client.schedule.listVouchers();
 
@@ -126,7 +134,7 @@ const scheduletests = () => {
     })
 
     it('Error to list health insurance without authentication', async function () {
-      const client = klingo.client(config.klingo)
+      const client = new klingo.Client(config.klingo)
       try {
         const results = await client.schedule.listVouchers();
       } catch (e) {
@@ -137,7 +145,7 @@ const scheduletests = () => {
 
   describe('Delete vouchers', function () {
     it('success', async function () {
-      const client = klingo.client(config.klingo)
+      const client = new klingo.Client(config.klingo)
       const authentication = await client.external.authenticate({ id: config.patient_id.id, login: config.klingo.login, senha: config.klingo.password });
       const results = await client.schedule.listVouchers();
       const cancel = await client.schedule.cancelVoucher({ id: results.content[0].id });
@@ -147,11 +155,11 @@ const scheduletests = () => {
     })
 
     it('Error to list health insurance without authentication', async function () {
-      const client = klingo.client(config.klingo)
+      const client = new klingo.Client(config.klingo)
       try {
         const results = await client.schedule.cancelVoucher();
-      } catch (e) {
-        expect(e).toBeInstanceOf(TypeError)
+      } catch (error) {
+        expect(error).toBeInstanceOf(TypeError)
       }
     })
   })

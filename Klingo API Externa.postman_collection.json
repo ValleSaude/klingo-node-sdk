@@ -377,7 +377,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nome\": \"Rafael da Mata Neri Kielman\",\n    \"sexo\": \"M\",\n    \"dt_nasc\": \"1983-03-01\"\n}"
+							"raw": "{\n    \"nome\": \"Rafael da Mata Neri\",\n    \"sexo\": \"M\",\n    \"dt_nasc\": \"1983-03-01\"\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/paciente",

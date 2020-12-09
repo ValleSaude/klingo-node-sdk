@@ -1,6 +1,6 @@
 module.exports = {
-    client: require('./client'),
-    resources: require('./resources'),
-    KlingoError: require('./Error'),
-    validate: require('./validate')
-}
+  api: require('./api/api'),
+  Client: require('./client').Client,
+  KlingoError: require('./error/klingo-error').KlingoError,
+  validate: require('./validate')
+};

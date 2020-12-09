@@ -1,0 +1,8 @@
+{
+  "endOfLine": "lf",
+  "useTabs": false,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "quoteProps": "as-needed",
+  "tabWidth": 2
+}

@@ -1,0 +1,19 @@
+{
+  "rules": {
+    "max-len": 0,
+    "no-tabs": "off",
+    "comma-dangle": "off",
+    "prefer-arrow-callback": "error",
+    "prefer-const": "error",
+    "comma-style": "off",
+    "object-curly-spacing": "off",
+    "semi": "error",
+    "no-var": "error",
+    "arrow-parens": "off",
+    "no-unused-expressions": "error",
+    "no-return-await": "error"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
+  }
+}

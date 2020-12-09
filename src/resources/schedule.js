@@ -8,11 +8,14 @@ class Schedule {
   }
 
   async getAvailableTimes(queryString) {
-    options.headers['Authorization'] = `${this.options.authentication.token_type} ${this.options.authentication.access_token}`;
+    const headers = {
+      ...this.options.headers,
+      Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
+    };
     const response = await axios.get(
       `${this.options.base.default}/${config.schedule.available}`,
       {
-        ...this.options,
+        headers,
         params: queryString
       }
     );
@@ -21,47 +24,65 @@ class Schedule {
   };
 
   async listServices() {
-    options.headers['Authorization'] = `${this.options.authentication.token_type} ${this.options.authentication.access_token}`;
+    const headers = {
+      ...this.options.headers,
+      Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
+    };
     const endpoint = `${this.options.base.default}/${config.schedule.services}`;
-    const response = await axios.get(endpoint, this.options);
+    const response = await axios.get(endpoint, { headers });
     return response.data;
   };
 
   async listSpecialties() {
-    options.headers['Authorization'] = `${this.options.authentication.token_type} ${this.options.authentication.access_token}`;
+    const headers = {
+      ...this.options.headers,
+      Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
+    };
     const endpoints = `${this.options.base.default}/${config.schedule.specialties}`;
-    const response = await axios.get(endpoints, this.options);
+    const response = await axios.get(endpoints, { headers });
     return response.data;
   };
 
   async listExams() {
-    options.headers['Authorization'] = `${this.options.authentication.token_type} ${this.options.authentication.access_token}`;
+    const headers = {
+      ...this.options.headers,
+      Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
+    };
     const endpoint = `${this.options.base.default}/${config.schedule.exams}`;
-    const response = await axios.get(endpoint, this.options);
+    const response = await axios.get(endpoint, { headers });
     return response.data;
   };
 
   async confirm(body) {
-    options.headers['Authorization'] = `${this.options.authentication.token_type} ${this.options.authentication.access_token}`;
+    const headers = {
+      ...this.options.headers,
+      Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
+    };
     const endpoint = `${this.options.base.default}/${config.schedule.confirm}`;
-    const response = await axios.post(endpoint, body, this.options);
+    const response = await axios.post(endpoint, body, { headers });
     return response.data;
   };
 
   async listVouchers() {
-    options.headers['Authorization'] = `${this.options.authentication.token_type} ${this.options.authentication.access_token}`;
+    const headers = {
+      ...this.options.headers,
+      Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
+    };
     const endpoint = `${this.options.base.default}/${config.schedule.vouchers}`;
-    const response = await axios.get(endpoint, this.options);
+    const response = await axios.get(endpoint, { headers });
     return response.data;
   };
 
   async cancelVoucher(body) {
-    options.headers['Authorization'] = `${this.options.authentication.token_type} ${this.options.authentication.access_token}`;
+    const headers = {
+      ...this.options.headers,
+      Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
+    };
 
     const response = await axios.delete(
       `${this.options.base.default}/${config.schedule.voucher}`,
       {
-        ...options,
+        headers,
         body,
       }
     );

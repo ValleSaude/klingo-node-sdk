@@ -1,4 +1,4 @@
-const { KlingoError } = require('../../error/index');
+const { KlingoError } = require('../../error/klingo-error');
 
 const responseErrorHandler = async error => {
   if (!(error instanceof TypeError)) {

@@ -1,6 +1,7 @@
 const { External } = require('./resources/external');
 const { Schedule } = require('./resources/schedule');
 const { Patient } = require('./resources/patient');
+const { Checkin } = require('./resources/checkin');
 const { Verify } = require('./resources/verify');
 const logger = require("./logger");
 const getBaseUrl = require("./utils").getBaseUrl;
@@ -69,6 +70,7 @@ class Client {
     this.external = new External(this, config);
     this.patient = new Patient(this, config);
     this.schedule = new Schedule(this, config);
+    this.checkin = new Checkin(this, config);
   }
 }
 

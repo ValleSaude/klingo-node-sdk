@@ -1,116 +1,42 @@
-const request = require("request-promise");
 const config = require("../config");
-const validate = require("../validate");
-const KlingoError = require("../Error");
+const axios = require("axios").default;
 
-const confirm = async (opts, params) => {
-  /**
-  * Validate opts
-  */
-  if (!validate.authenticated(opts)) {
-    throw new TypeError(
-      "Verifique as configurações da requisição"
-    );
+class Checkin {
+  constructor(client, options) {
+    this.client = client;
+    this.options = options;
   }
 
-  try {
-    opts.headers['Authorization'] = `${opts.authentication.token_type} ${opts.authentication.access_token}`;
-
-    const response = await request({
-      ...opts,
-      url: `${opts.base.default}/${config.checkin}`,
-      body: JSON.stringify(params),
-      method: "POST"
-    });
-
-    return {
-      ...response,
-      content: JSON.parse(response.content)
+  async confirm(body) {
+    const headers = {
+      ...this.options.headers,
+      Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
     };
-  } catch (e) {
-    const error = { ...e.response };
-
-    if (error.content && error.content == "Unauthorized") {
-      error.content = [
-        {
-          code: 401,
-          message: "Unauthorized"
-        }
-      ];
-    } else if (e.response && e.response.statusCode === 419) {
-      error.content = e.response.body;
-    } else {
-      try {
-        error.content = JSON.parse(e.response.body);
-      } catch (er) {
-        error.content = [
-          {
-            code: 500,
-            message: e.response.body
-          }
-        ];
+    const { data } = await axios.post(
+      `${opts.base.default}/${config.checkin}`,
+      {
+        headers,
+        body,
       }
-    }
-
-    throw new KlingoError(error);
-  }
-};
-
-const cancel = async (opts, params) => {
-  /**
-  * Validate opts
-  */
-  if (!validate.authenticated(opts)) {
-    throw new TypeError(
-      "Verifique as configurações da requisição"
     );
-  }
+    return data;
+  };
 
-  try {
-    opts.headers['Authorization'] = `${opts.authentication.token_type} ${opts.authentication.access_token}`;
-
-    const response = await request({
-      ...opts,
-      url: `${opts.base.default}/${config.checkin}`,
-      body: JSON.stringify(params),
-      method: "DELETE"
-    });
-
-    return {
-      ...response,
-      content: JSON.parse(response.content)
+  async cancel(body) {
+    const headers = {
+      ...this.options.headers,
+      Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
     };
-  } catch (e) {
-    console.log(e);
-    const error = { ...e.response };
 
-    if (error.content && error.content == "Unauthorized") {
-      error.content = [
-        {
-          code: 401,
-          message: "Unauthorized"
-        }
-      ];
-    } else if (e.response && e.response.statusCode === 419) {
-      error.content = e.response.body;
-    } else {
-      try {
-        error.content = JSON.parse(e.response.body);
-      } catch (er) {
-        error.content = [
-          {
-            code: 500,
-            message: e.response
-          }
-        ];
+    const { data } = await axios.delete(
+      `${opts.base.default}/${config.checkin}`,
+      {
+        headers,
+        body,
       }
-    }
-
-    throw new KlingoError(error);
+    );
+    return data;
   }
-};
+}
 
-module.exports = {
-  confirm,
-  cancel,
-};
+module.exports = { Checkin };

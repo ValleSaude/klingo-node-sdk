@@ -9,23 +9,21 @@ class External {
   }
 
   async register(body) {
+    const headers = this.options.headers;
     const endpoint = `${this.options.base.default}/${config.external.register}`;
-    const response = await axios.post(endpoint, body, this.options);
+    const response = await axios.post(endpoint, body, { headers });
     return response.data;
   }
 
   async authenticate(body) {
+    const headers = this.options.headers;
     const endpoint = `${this.options.base.default}/${config.external.authenticate}`;
-    const options = {
-      headers: this.options.headers
-    }
-    const response = await axios.post(endpoint, body, options);
-    const authentication = {
-      ...response.data,
-      expires: moment().add(response.data.expires_in, 'seconds')
+    const { data } = await axios.post(endpoint, body, { headers });
+    this.options.authentication = {
+      ...data,
+      expires: moment().add(data.expires_in, 'seconds')
     };
-    this.options.authentication = authentication;
-    return authentication;
+    return this.options.authentication;
   }
 }
 

@@ -93,16 +93,16 @@ const patient_update = {
   "nome": "Rafael da Mata Neri",
   "sexo": "M",
   "dt_nasc": "1983-03-01"
-}
+};
 
 /**
  * Schedule Available
  */
 const available = {
-  "especialidade": 225275,
-  "inicio": (new Date()).toISOString().split('T')[0],
-  "fim": (new Date()).toISOString().split('T')[0]
-}
+  especialidade: 225275,
+  inicio: new Date().toISOString().split('T')[0],
+  fim: new Date().toISOString().split('T')[0]
+};
 
 /**
  * Schedule Confirm
@@ -110,7 +110,7 @@ const available = {
 const confirm = {
   "procedimento": 1123,
   "id": "2020-11-04|35|151|2|15:10",
-}
+};
 
 /**
  * exports

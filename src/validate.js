@@ -145,7 +145,7 @@ function authenticated(options) {
     return;
   }
 
-  const REQUIRED_PARAMS = ["authentication"];
+  const REQUIRED_PARAMS = ["Authorization"];
 
   options = Object.keys(options);
 

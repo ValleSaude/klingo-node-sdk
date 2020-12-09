@@ -8,9 +8,8 @@ class Verify {
   }
 
   async get() {
-    this.options.headers['Content-Type'] = 'application/json; charset=UTF-8';
-    const response = await axios.get(`${this.options.base.default}/${config.verify}`, this.options);
-    return response.data;
+    const { data } = await axios.get(`${this.options.base.default}/${config.verify}`);
+    return data;
   };
 }
 

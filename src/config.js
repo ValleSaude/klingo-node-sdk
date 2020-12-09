@@ -20,5 +20,6 @@ module.exports = {
     confirm: "agenda/horario",
     vouchers: "vouchers",
     voucher: "voucher",
-  }
+  },
+  checkin: "checkin",
 };

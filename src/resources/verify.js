@@ -1,5 +1,5 @@
-const config = require("../config");
-const axios = require("axios").default;
+const config = require('../config');
+const axios = require('axios').default;
 
 class Verify {
   constructor(client, options) {
@@ -8,9 +8,11 @@ class Verify {
   }
 
   async get() {
-    const { data } = await axios.get(`${this.options.base.default}/${config.verify}`);
+    const { data } = await axios.get(
+      `${this.options.base.default}/${config.verify}`
+    );
     return data;
-  };
+  }
 }
 
 module.exports = { Verify };

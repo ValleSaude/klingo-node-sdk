@@ -9,6 +9,10 @@
     "test": "jest",
     "example": "nodemon example/api/index.js",
     "clean": "rimraf lib",
+    "pre-commit": "npm run prettier-fix && npm run lint-fix",
+    "check-prettier": "prettier --list-different *.js",
+    "prettier-fix": "prettier --write **.js",
+    "lint-fix": "eslint --fix --ext .js,.jsx .",
     "build": "babel src --out-dir lib --source-maps",
     "postversion": "git push && git push --tags && rm -rf build/temp",
     "prepublish": "npm run clean && npm run test && npm run build"
@@ -41,6 +45,7 @@
     "jest": "^24.1.0",
     "moment": "^2.24.0",
     "nodemon": "^1.17.3",
+    "prettier": "2.2.1",
     "rimraf": "^2.6.2"
   },
   "repository": {

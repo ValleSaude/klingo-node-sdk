@@ -7,7 +7,7 @@ class KlingoError {
       return;
     }
 
-    if (error.message == "Unauthorized") {
+    if (error.message == 'Unauthorized') {
       error.statusCode = 401;
     }
 

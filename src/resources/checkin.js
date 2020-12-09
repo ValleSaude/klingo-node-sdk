@@ -1,5 +1,5 @@
-const config = require("../config");
-const axios = require("axios").default;
+const config = require('../config');
+const axios = require('axios').default;
 
 class Checkin {
   constructor(client, options) {
@@ -16,11 +16,11 @@ class Checkin {
       `${opts.base.default}/${config.checkin}`,
       {
         headers,
-        body,
+        body
       }
     );
     return data;
-  };
+  }
 
   async cancel(body) {
     const headers = {
@@ -32,7 +32,7 @@ class Checkin {
       `${opts.base.default}/${config.checkin}`,
       {
         headers,
-        body,
+        body
       }
     );
     return data;

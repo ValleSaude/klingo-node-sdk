@@ -1,8 +1,8 @@
-const config = require("./config");
-const klingo = require("../src");
+const config = require('./config');
+const klingo = require('../src');
 
 const verifytests = () => {
-  it("success", async () => {
+  it('success', async () => {
     const client = new klingo.Client(config.klingo);
     const verify = await client.verify.get();
 
@@ -10,23 +10,22 @@ const verifytests = () => {
     expect(verify).toEqual('OK');
   });
 
-  it("error", async () => {
+  it('error', async () => {
     try {
       const configError = {
         ...config.klingo,
-        xAppToken: "",
-        env: ""
+        xAppToken: '',
+        env: ''
       };
       const client = new klingo.Client(configError);
       const verify = await client.verify.get();
     } catch (error) {
       expect(error).toBeDefined();
-      expect(typeof error).toEqual("KlingoError");
-      expect(error).toHaveProperty("status", "error");
-      expect(error).toHaveProperty("statusCode", 500);
+      expect(typeof error).toEqual('KlingoError');
+      expect(error).toHaveProperty('status', 'error');
+      expect(error).toHaveProperty('statusCode', 500);
     }
   });
-
 };
 
 describe('Verify', verifytests);

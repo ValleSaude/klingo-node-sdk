@@ -2,11 +2,11 @@
  * klingo
  */
 const klingo = {
-  xAppToken: "clivaleteste:p35WMOhMh7csoYFK", // Key da aplicação
-  login: "chapp", // Login da aplicação
-  password: "123", // Senha da aplicação
-  env: "sandbox",
-  log: __dirname + "/log/klingo.log",
+  xAppToken: 'clivaleteste:p35WMOhMh7csoYFK', // Key da aplicação
+  login: 'chapp', // Login da aplicação
+  password: '123', // Senha da aplicação
+  env: 'sandbox',
+  log: __dirname + '/log/klingo.log',
   debug: false
 };
 
@@ -14,34 +14,34 @@ const klingo = {
  * Patient
  */
 const patient = {
-  "login": "chapp",
-  "senha": "123",
-  "paciente": {
-    "id_origem": "5f970e0e8839ec0017df6975",
-    "nome": "Rafael da Mata Neri",
-    "sexo": "M",
-    "dt_nasc": "1980-01-01",
-    "mae": "Mãe da Mata Neri",
-    "docs": {
-      "cpf": "00000000000"
+  login: 'chapp',
+  senha: '123',
+  paciente: {
+    id_origem: '5f970e0e8839ec0017df6975',
+    nome: 'Rafael da Mata Neri',
+    sexo: 'M',
+    dt_nasc: '1980-01-01',
+    mae: 'Mãe da Mata Neri',
+    docs: {
+      cpf: '00000000000'
     },
-    "contatos": {
-      "celular": "71999999999",
-      "telefone": "71999999999",
-      "email": "rafael.neri@gmail.com"
+    contatos: {
+      celular: '71999999999',
+      telefone: '71999999999',
+      email: 'rafael.neri@gmail.com'
     },
-    "endereco": {
-      "cep": "40000000",
-      "endereco": "Rua Da Casa",
-      "numero": "999",
-      "complemento": "Casa 999",
-      "bairro": "Bairro",
-      "cidade": "Salvador",
-      "uf": "BA"
+    endereco: {
+      cep: '40000000',
+      endereco: 'Rua Da Casa',
+      numero: '999',
+      complemento: 'Casa 999',
+      bairro: 'Bairro',
+      cidade: 'Salvador',
+      uf: 'BA'
     },
-    "convenio": {
-      "matricula": "00000000000",
-      "validade": "2030-12-20"
+    convenio: {
+      matricula: '00000000000',
+      validade: '2030-12-20'
     }
   }
 };
@@ -50,24 +50,24 @@ const patient = {
  * Patient Wrong
  */
 const patient_wrong = {
-  "login": "chapp",
-  "senha": "123",
-  "paciente": {
-    "id_origem": "5f970e0e8839ec0017df6975",
-    "nome": "Rafael da Mata Neri",
-    "sexo": "M",
-    "dt_nasc": "1980-01-01",
-    "mae": "Mãe da Mata Neri",
-    "contatos": {
-      "email": "rafael.neri@gmail.com"
+  login: 'chapp',
+  senha: '123',
+  paciente: {
+    id_origem: '5f970e0e8839ec0017df6975',
+    nome: 'Rafael da Mata Neri',
+    sexo: 'M',
+    dt_nasc: '1980-01-01',
+    mae: 'Mãe da Mata Neri',
+    contatos: {
+      email: 'rafael.neri@gmail.com'
     },
-    "endereco": {
-      "endereco": "Rua Da Casa",
-      "numero": "999",
-      "complemento": "Casa 999",
-      "bairro": "Bairro",
-      "cidade": "Salvador",
-      "uf": "BA"
+    endereco: {
+      endereco: 'Rua Da Casa',
+      numero: '999',
+      complemento: 'Casa 999',
+      bairro: 'Bairro',
+      cidade: 'Salvador',
+      uf: 'BA'
     }
   }
 };
@@ -76,23 +76,23 @@ const patient_wrong = {
  * Patient Id
  */
 const patient_id = {
-  "id": 8
+  id: 8
 };
 
 /**
  * Patient Id Wrong
  */
 const patient_id_wrong = {
-  "id": -8
+  id: -8
 };
 
 /**
  * Patient Update
  */
 const patient_update = {
-  "nome": "Rafael da Mata Neri",
-  "sexo": "M",
-  "dt_nasc": "1983-03-01"
+  nome: 'Rafael da Mata Neri',
+  sexo: 'M',
+  dt_nasc: '1983-03-01'
 };
 
 /**
@@ -108,8 +108,8 @@ const available = {
  * Schedule Confirm
  */
 const confirm = {
-  "procedimento": 1123,
-  "id": "2020-11-04|35|151|2|15:10",
+  procedimento: 1123,
+  id: '2020-11-04|35|151|2|15:10'
 };
 
 /**
@@ -123,5 +123,5 @@ module.exports = {
   patient_id_wrong,
   patient_update,
   available,
-  confirm,
+  confirm
 };

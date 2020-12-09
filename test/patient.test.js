@@ -2,7 +2,6 @@ const config = require('./config');
 const klingo = require('../src');
 
 const patienttests = () => {
-
   describe('Get', () => {
     it('success', async () => {
       const client = new klingo.Client(config.klingo);
@@ -13,7 +12,7 @@ const patienttests = () => {
       });
       const patient = await client.patient.get();
 
-      expect(typeof patient).toEqual("object");
+      expect(typeof patient).toEqual('object');
       expect(patient).toBeDefined();
       expect(patient.nome).toEqual('Rafael da Mata Neri');
     });
@@ -38,7 +37,7 @@ const patienttests = () => {
       });
       const patient = await client.patient.update(config.patient_update);
 
-      expect(typeof patient).toEqual("object");
+      expect(typeof patient).toEqual('object');
       expect(patient).toBeDefined();
       expect(patient.nome).toEqual(config.patient_update.nome);
     });
@@ -63,7 +62,7 @@ const patienttests = () => {
       });
       const healthInsurance = await client.patient.listHealthInsurance();
 
-      expect(typeof healthInsurance).toEqual("object");
+      expect(typeof healthInsurance).toEqual('object');
       expect(healthInsurance).toBeDefined();
       expect(Array.isArray(healthInsurance)).toEqual(true);
     });
@@ -77,7 +76,6 @@ const patienttests = () => {
       }
     });
   });
-
 };
 
 describe('Patient', patienttests);

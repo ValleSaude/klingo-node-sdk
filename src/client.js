@@ -3,21 +3,23 @@ const { Schedule } = require('./resources/schedule');
 const { Patient } = require('./resources/patient');
 const { Checkin } = require('./resources/checkin');
 const { Verify } = require('./resources/verify');
-const logger = require("./logger");
-const getBaseUrl = require("./utils").getBaseUrl;
-const validate = require("./validate");
+const logger = require('./logger');
+const getBaseUrl = require('./utils').getBaseUrl;
+const validate = require('./validate');
 
 class Client {
   constructor(options) {
     if (!validate.client(options)) {
-      throw new TypeError("Erro ao conectar com klingo! Verifique as configurações");
+      throw new TypeError(
+        'Erro ao conectar com klingo! Verifique as configurações'
+      );
     }
 
     let log = {
-      log: () => { },
-      info: () => { },
-      error: () => { },
-      success: () => { }
+      log: () => {},
+      info: () => {},
+      error: () => {},
+      success: () => {}
     };
 
     if (options.debug) {
@@ -28,16 +30,17 @@ class Client {
       /*       logger: log,
             env: options.env, */
       base: {
-        default: getBaseUrl(options.env, "default")
+        default: getBaseUrl(options.env, 'default')
       },
       headers: {
-        'Access-Control-Allow-Methods': 'POST, GET, PATCH, PUT, DELETE, OPTIONS',
+        'Access-Control-Allow-Methods':
+          'POST, GET, PATCH, PUT, DELETE, OPTIONS',
         'Access-Control-Allow-Headers': '*',
         'Access-Control-Allow-Origin': '*',
-        'Accept': 'application/json',
-        "Content-Type": "application/json",
-        "X-APP-TOKEN": options.xAppToken
-      },
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'X-APP-TOKEN': options.xAppToken
+      }
       /*       transform: (body, response, resolveWithFullResponse) => {
               let status = response.statusCode <= 200 ? "success" : "error";
       

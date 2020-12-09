@@ -2,14 +2,14 @@
  * isString
  */
 function isString(value) {
-  return typeof value === "string" || value instanceof String;
+  return typeof value === 'string' || value instanceof String;
 }
 
 /**
  * isNumber
  */
 function isNumber(value) {
-  return typeof value === "number" && isFinite(value);
+  return typeof value === 'number' && isFinite(value);
 }
 
 /**
@@ -23,7 +23,7 @@ function isArray(value) {
  * isFunction
  */
 function isFunction(value) {
-  return typeof value === "function";
+  return typeof value === 'function';
 }
 
 /**
@@ -31,7 +31,7 @@ function isFunction(value) {
  */
 function isObject(value) {
   const type = typeof value;
-  return type === "function" || (type === "object" && !!value);
+  return type === 'function' || (type === 'object' && !!value);
 }
 
 /**
@@ -45,35 +45,35 @@ function isNull(value) {
  * isUndefined
  */
 function isUndefined(value) {
-  return value === "undefined";
+  return value === 'undefined';
 }
 
 /**
  * isBoolean
  */
 function isBoolean(value) {
-  return typeof value === "boolean";
+  return typeof value === 'boolean';
 }
 
 /**
  * isRegExp
  */
 function isRegExp(value) {
-  return value && typeof value === "object" && value.constructor === RegExp;
+  return value && typeof value === 'object' && value.constructor === RegExp;
 }
 
 /**
  * isError
  */
 function isError(value) {
-  return value instanceof Error && typeof value.message !== "undefined";
+  return value instanceof Error && typeof value.message !== 'undefined';
 }
 
 /**
  * isSymbol
  */
 function isSymbol(value) {
-  return typeof value === "symbol";
+  return typeof value === 'symbol';
 }
 
 /**
@@ -87,15 +87,15 @@ function isDate(value) {
  * isEquivalent
  */
 function isEquivalent(a, b) {
-  var aProps = Object.getOwnPropertyNames(a);
-  var bProps = Object.getOwnPropertyNames(b);
+  const aProps = Object.getOwnPropertyNames(a);
+  const bProps = Object.getOwnPropertyNames(b);
 
   if (aProps.length != bProps.length) {
     return false;
   }
 
-  for (var i = 0; i < aProps.length; i++) {
-    var propName = aProps[i];
+  for (let i = 0; i < aProps.length; i++) {
+    const propName = aProps[i];
     if (a[propName] !== b[propName]) {
       return false;
     }
@@ -122,11 +122,11 @@ function client(params) {
     return;
   }
 
-  const REQUIRED_PARAMS = ["xAppToken", "env", "log"];
+  const REQUIRED_PARAMS = ['xAppToken', 'env', 'log'];
 
   params = Object.keys(params);
 
-  for (let i in REQUIRED_PARAMS) {
+  for (const i in REQUIRED_PARAMS) {
     if (!params.includes(REQUIRED_PARAMS[i])) {
       return;
     }
@@ -145,11 +145,11 @@ function authenticated(options) {
     return;
   }
 
-  const REQUIRED_PARAMS = ["Authorization"];
+  const REQUIRED_PARAMS = ['Authorization'];
 
   options = Object.keys(options);
 
-  for (let i in REQUIRED_PARAMS) {
+  for (const i in REQUIRED_PARAMS) {
     if (!options.includes(REQUIRED_PARAMS[i])) {
       return;
     }

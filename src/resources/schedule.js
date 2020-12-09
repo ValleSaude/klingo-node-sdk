@@ -1,5 +1,5 @@
-const axios = require("axios").default;
-const config = require("../config");
+const axios = require('axios').default;
+const config = require('../config');
 
 class Schedule {
   constructor(client, options) {
@@ -21,7 +21,7 @@ class Schedule {
     );
 
     return response.data;
-  };
+  }
 
   async listServices() {
     const headers = {
@@ -31,7 +31,7 @@ class Schedule {
     const endpoint = `${this.options.base.default}/${config.schedule.services}`;
     const response = await axios.get(endpoint, { headers });
     return response.data;
-  };
+  }
 
   async listSpecialties() {
     const headers = {
@@ -41,7 +41,7 @@ class Schedule {
     const endpoints = `${this.options.base.default}/${config.schedule.specialties}`;
     const response = await axios.get(endpoints, { headers });
     return response.data;
-  };
+  }
 
   async listExams() {
     const headers = {
@@ -51,7 +51,7 @@ class Schedule {
     const endpoint = `${this.options.base.default}/${config.schedule.exams}`;
     const response = await axios.get(endpoint, { headers });
     return response.data;
-  };
+  }
 
   async confirm(body) {
     const headers = {
@@ -61,7 +61,7 @@ class Schedule {
     const endpoint = `${this.options.base.default}/${config.schedule.confirm}`;
     const response = await axios.post(endpoint, body, { headers });
     return response.data;
-  };
+  }
 
   async listVouchers() {
     const headers = {
@@ -71,7 +71,7 @@ class Schedule {
     const endpoint = `${this.options.base.default}/${config.schedule.vouchers}`;
     const response = await axios.get(endpoint, { headers });
     return response.data;
-  };
+  }
 
   async cancelVoucher(body) {
     const headers = {
@@ -83,13 +83,12 @@ class Schedule {
       `${this.options.base.default}/${config.schedule.voucher}`,
       {
         headers,
-        body,
+        body
       }
     );
 
     return response.data;
-  };
+  }
 }
-
 
 module.exports = { Schedule };

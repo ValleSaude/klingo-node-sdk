@@ -1,6 +1,6 @@
-const config = require("../config");
+const config = require('../config');
 const moment = require('moment');
-const axios = require("axios").default;
+const axios = require('axios').default;
 
 class External {
   constructor(client, options) {

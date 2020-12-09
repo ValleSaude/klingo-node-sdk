@@ -1,5 +1,5 @@
-const config = require("./config");
-const klingo = require("../src");
+const config = require('./config');
+const klingo = require('../src');
 
 const checkintests = () => {
   describe('Confirm check-in', () => {
@@ -10,16 +10,18 @@ const checkintests = () => {
         login: config.klingo.login,
         senha: config.klingo.password
       });
-      const available = await client.schedule.getAvailableTimes(config.available);
+      const available = await client.schedule.getAvailableTimes(
+        config.available
+      );
       const confirm = await client.schedule.confirm({
         procedimento: available.procedimento,
-        id: Object.keys(available.horarios[0].horarios)[0],
+        id: Object.keys(available.horarios[0].horarios)[0]
       });
       const checkin = await client.checkin.confirm({
         id: confirm.id
       });
 
-      expect(typeof checkin).toEqual("object");
+      expect(typeof checkin).toEqual('object');
       expect(checkin).toBeDefined();
     });
 
@@ -41,10 +43,14 @@ const checkintests = () => {
         login: config.klingo.login,
         senha: config.klingo.password
       });
-      const available = await client.schedule.getAvailableTimes(config.available);
+      const available = await client.schedule.getAvailableTimes(
+        config.available
+      );
       const confirm = await client.schedule.confirm({
-        "procedimento": available.procedimento,
-        "id": Object.keys(available.horarios[available.horarios.length - 1].horarios)[0],
+        procedimento: available.procedimento,
+        id: Object.keys(
+          available.horarios[available.horarios.length - 1].horarios
+        )[0]
       });
       const checkin = await client.checkin.confirm({
         id: confirm.id
@@ -53,7 +59,7 @@ const checkintests = () => {
         id: confirm.id
       });
 
-      expect(typeof cancel).toEqual("object");
+      expect(typeof cancel).toEqual('object');
       expect(cancel).toBeDefined();
     });
 
@@ -66,7 +72,6 @@ const checkintests = () => {
       }
     });
   });
-
 };
 
 describe('Check-In', checkintests);

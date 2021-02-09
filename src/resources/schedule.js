@@ -80,11 +80,7 @@ class Schedule {
     };
 
     const response = await axios.delete(
-      `${this.options.base.default}/${config.schedule.voucher}`,
-      {
-        headers,
-        body
-      }
+      `${this.options.base.default}/${config.schedule.voucher}`,{data: body, headers}
     );
 
     return response.data;

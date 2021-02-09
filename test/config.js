@@ -7,7 +7,7 @@ const klingo = {
   password: '123', // Senha da aplicação
   env: 'sandbox',
   log: __dirname + '/log/klingo.log',
-  debug: false
+  debug: true
 };
 
 /**

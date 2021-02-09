@@ -6,8 +6,8 @@
   "license": "MIT",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "jest",
-    "example": "nodemon example/api/index.js",
+    "test": "jest --coverage",
+    "release": "generate-release",
     "clean": "rimraf lib",
     "pre-commit": "npm run prettier-fix && npm run lint-fix",
     "check-prettier": "prettier --list-different *.js",
@@ -22,6 +22,7 @@
     "axios": "^0.21.0",
     "clone": "^2.1.2",
     "ip": "^1.1.5",
+    "nyc": "^15.1.0",
     "winston": "^3.1.0"
   },
   "devDependencies": {
@@ -42,6 +43,7 @@
     "coveralls": "^3.0.1",
     "eslint": "^7.12.1",
     "express": "^4.16.4",
+    "generate-release": "^1.1.1",
     "istanbul": "^0.4.5",
     "jest": "^24.1.0",
     "moment": "^2.24.0",

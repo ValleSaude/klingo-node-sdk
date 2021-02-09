@@ -1,3 +1,5 @@
+[![Build Status](https://www.travis-ci.com/rafaneri/klingo-node-sdk.svg?branch=master)](https://www.travis-ci.com/rafaneri/klingo-node-sdk)
+
 # KLINGO + NODEJS
 
 Aplicação em desenvolvimento. Recursos básicos para integração com o Klingo. **Em breve documentação.**

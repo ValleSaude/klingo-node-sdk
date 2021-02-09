@@ -28,8 +28,8 @@ const externaltests = () => {
         });
       } catch (error) {
         expect(error).toBeDefined();
-        expect(typeof error).toEqual('KlingoError');
-        expect(error).toHaveProperty('status', 'error');
+
+        expect(error).toHaveProperty('status', 'unknown status');
         expect(error).toHaveProperty('statusCode', 419);
       }
     });

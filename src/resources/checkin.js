@@ -12,14 +12,10 @@ class Checkin {
       ...this.options.headers,
       Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
     };
-    const { data } = await axios.post(
-      `${opts.base.default}/${config.checkin}`,
-      {
-        headers,
-        body
-      }
-    );
-    return data;
+
+    const endpoint = `${this.options.base.default}/${config.checkin}`;
+    const response = await axios.post(endpoint, body, { headers });
+    return response.data;
   }
 
   async cancel(body) {
@@ -27,12 +23,9 @@ class Checkin {
       ...this.options.headers,
       Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
     };
-
-    const {data} = await axios.delete(
-      `${this.opts.base.default}/${config.checkin}`, {data: body, headers}
-    );
-
-    return data;
+    const endpoint = `${this.options.base.default}/${config.checkin}`;
+    const response = await axios.delete(endpoint, { data: body, headers });
+    return response.data;
   }
 }
 

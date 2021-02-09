@@ -142,7 +142,7 @@ function client(params) {
  */
 function authenticated(options) {
   if (!isObject(options)) {
-    return;
+    return false;
   }
 
   const REQUIRED_PARAMS = ['Authorization'];
@@ -151,7 +151,7 @@ function authenticated(options) {
 
   for (const i in REQUIRED_PARAMS) {
     if (!options.includes(REQUIRED_PARAMS[i])) {
-      return;
+      return false;
     }
   }
 

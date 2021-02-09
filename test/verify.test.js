@@ -14,14 +14,12 @@ const verifytests = () => {
     try {
       const configError = {
         ...config.klingo,
-        xAppToken: '',
-        env: ''
+        xAppToken: ''
       };
       const client = new klingo.Client(configError);
       const verify = await client.verify.get();
     } catch (error) {
       expect(error).toBeDefined();
-      expect(typeof error).toEqual('KlingoError');
       expect(error).toHaveProperty('status', 'error');
       expect(error).toHaveProperty('statusCode', 500);
     }

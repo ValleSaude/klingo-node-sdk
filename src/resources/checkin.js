@@ -28,13 +28,10 @@ class Checkin {
       Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
     };
 
-    const { data } = await axios.delete(
-      `${opts.base.default}/${config.checkin}`,
-      {
-        headers,
-        body
-      }
+    const {data} = await axios.delete(
+      `${this.opts.base.default}/${config.checkin}`, {data: body, headers}
     );
+
     return data;
   }
 }

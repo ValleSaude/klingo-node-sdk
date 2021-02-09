@@ -15,6 +15,6 @@ before_deploy:
   - git tag $TRAVIS_TAG
 deploy:
   provider: releases
-  api_key: "3feaaf4cc5d2bb81db58ce3afc1e073475cc72e1"
+  api_key: $GITHUB_TOKEN
   file: lib/**/*
   skip_cleanup: true

@@ -1,10 +1,11 @@
-const axios = require('axios').default;
 const config = require('../config');
+const {Api} = require('../api/api');
 
 class Patient {
   constructor(client, options) {
     this.client = client;
     this.options = options;
+    this.api = new Api();
   }
 
   async get() {
@@ -13,7 +14,7 @@ class Patient {
       Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
     };
     const endpoint = `${this.options.base.default}/${config.patient.get}`;
-    const response = await axios.get(endpoint, { headers });
+    const response = await this.api.get(endpoint, { headers });
     return response.data;
   }
 
@@ -22,7 +23,7 @@ class Patient {
       ...this.options.headers,
       Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
     };
-    const response = await axios.put(
+    const response = await this.api.put(
       `${this.options.base.default}/${config.patient.get}`,
       body,
       { headers }
@@ -36,7 +37,7 @@ class Patient {
       Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
     };
     const endpoint = `${this.options.base.default}/${config.patient.healthInsurance}`;
-    const response = await axios.get(endpoint, { headers });
+    const response = await this.api.get(endpoint, { headers });
     return response.data;
   }
 }

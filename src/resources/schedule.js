@@ -1,10 +1,10 @@
-const axios = require('axios').default;
 const config = require('../config');
-
+const {Api} = require('../api/api');
 class Schedule {
   constructor(client, options) {
     this.client = client;
     this.options = options;
+    this.api = new Api();
   }
 
   async getAvailableTimes(queryString) {
@@ -12,7 +12,7 @@ class Schedule {
       ...this.options.headers,
       Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
     };
-    const response = await axios.get(
+    const response = await this.api.get(
       `${this.options.base.default}/${config.schedule.available}`,
       {
         headers,
@@ -29,7 +29,7 @@ class Schedule {
       Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
     };
     const endpoint = `${this.options.base.default}/${config.schedule.services}`;
-    const response = await axios.get(endpoint, { headers });
+    const response = await this.api.get(endpoint, { headers });
     return response.data;
   }
 
@@ -39,7 +39,7 @@ class Schedule {
       Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
     };
     const endpoints = `${this.options.base.default}/${config.schedule.specialties}`;
-    const response = await axios.get(endpoints, { headers });
+    const response = await this.api.get(endpoints, { headers });
     return response.data;
   }
 
@@ -49,7 +49,7 @@ class Schedule {
       Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
     };
     const endpoint = `${this.options.base.default}/${config.schedule.exams}`;
-    const response = await axios.get(endpoint, { headers });
+    const response = await this.api.get(endpoint, { headers });
     return response.data;
   }
 
@@ -59,7 +59,7 @@ class Schedule {
       Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
     };
     const endpoint = `${this.options.base.default}/${config.schedule.confirm}`;
-    const response = await axios.post(endpoint, body, { headers });
+    const response = await this.api.post(endpoint, body, { headers });
     return response.data;
   }
 
@@ -69,7 +69,7 @@ class Schedule {
       Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
     };
     const endpoint = `${this.options.base.default}/${config.schedule.vouchers}`;
-    const response = await axios.get(endpoint, { headers });
+    const response = await this.api.get(endpoint, { headers });
     return response.data;
   }
 
@@ -79,7 +79,7 @@ class Schedule {
       Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
     };
 
-    const response = await axios.delete(
+    const response = await this.api.delete(
       `${this.options.base.default}/${config.schedule.voucher}`,
       {
         headers,

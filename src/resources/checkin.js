@@ -13,6 +13,7 @@ class Checkin {
       ...this.options.headers,
       Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
     };
+    
     const { data } = await this.api.post(
       `${this.options.base.default}/${config.checkin}`,
       body,
@@ -28,7 +29,7 @@ class Checkin {
       ...this.options.headers,
       Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
     };
-
+    
     const {data} = await this.api.delete(
       `${this.options.base.default}/${config.checkin}`, {data: body, headers}
     );

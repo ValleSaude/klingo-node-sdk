@@ -118,6 +118,7 @@ const scheduletests = () => {
       const available = await client.schedule.getAvailableTimes(
         config.available
       );
+
       const confirm = await client.schedule.confirm({
         procedimento: available.procedimento,
         id: Object.keys(available.horarios[0].horarios)[0]
@@ -171,10 +172,14 @@ const scheduletests = () => {
         senha: config.klingo.password
       });
       const results = await client.schedule.listVouchers();
-      const cancel = await client.schedule.cancelVoucher({ id: results[0].id });
 
-      expect(typeof cancel).toEqual('object');
-      expect(cancel).toBeDefined();
+      for (let index = 0; index < results.length; index++) {
+        const element = results[index];
+        const cancel = await client.schedule.cancelVoucher({ id: element.id });
+
+        expect(typeof cancel).toEqual('object');
+        expect(cancel).toBeDefined();
+      }
     });
 
     it('Error to list health insurance without authentication', async () => {

@@ -28,6 +28,7 @@ const externaltests = () => {
         });
       } catch (error) {
         expect(error).toBeDefined();
+
         expect(error).toHaveProperty('status', 'unknown status');
         expect(error).toHaveProperty('statusCode', 419);
       }

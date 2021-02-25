@@ -1,0 +1,20 @@
+{
+    "package_file_location": "./package.json",
+    "no_confirm": true,
+    "skip_git_pull": false,
+    "skip_git_push": false,
+    "skip_finish": false,
+    "release_message": true,
+    "remote": "origin",
+    "pre_commit_commands": [
+        "npm run-script build"
+    ],
+    "post_commit_commands": [],
+    "post_complete_commands": [],
+    "files_to_commit": [
+        "./lib/**/*"
+    ],
+    "files_to_version": [
+        "README.md"
+    ]
+}

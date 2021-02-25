@@ -26,6 +26,20 @@ const clienttests = () => {
       expect(error).toBeInstanceOf(TypeError);
     }
   });
+
+  it('error', async () => {
+    try {
+      const configError = {
+        ...config.klingo,
+        xAppToken: '',
+        env: ''
+      };
+      const client = new klingo.Client(configError);
+      const verify = await client.verify.get();
+    } catch (error) {
+      expect(error).toBeDefined();
+    }
+  });
 };
 
 describe('Client', clienttests);

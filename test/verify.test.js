@@ -19,9 +19,7 @@ const verifytests = () => {
       const client = new klingo.Client(configError);
       const verify = await client.verify.get();
     } catch (error) {
-      expect(error).toBeDefined();
-      expect(error).toHaveProperty('status', 'error');
-      expect(error).toHaveProperty('statusCode', 500);
+      expect(error).toBeInstanceOf(TypeError);
     }
   });
 };

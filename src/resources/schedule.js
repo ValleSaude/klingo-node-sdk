@@ -80,11 +80,7 @@ class Schedule {
     };
 
     const response = await this.api.delete(
-      `${this.options.base.default}/${config.schedule.voucher}`,
-      {
-        headers,
-        body
-      }
+      `${this.options.base.default}/${config.schedule.voucher}`, {data: body, headers}
     );
 
     return response.data;

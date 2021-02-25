@@ -15,10 +15,10 @@ class Checkin {
     };
     
     const { data } = await this.api.post(
-      `${opts.base.default}/${config.checkin}`,
+      `${this.options.base.default}/${config.checkin}`,
+      body,
       {
-        headers,
-        body
+        headers
       }
     );
     return data;
@@ -31,7 +31,7 @@ class Checkin {
     };
     
     const {data} = await this.api.delete(
-      `${this.opts.base.default}/${config.checkin}`, {data: body, headers}
+      `${this.options.base.default}/${config.checkin}`, {data: body, headers}
     );
 
     return data;

@@ -14,7 +14,7 @@ const patienttests = () => {
 
       expect(typeof patient).toEqual('object');
       expect(patient).toBeDefined();
-      expect(patient.nome).toEqual('Rafael da Mata Neri');
+      expect(patient.nome).toEqual('RAFAEL DA MATA NERI');
     });
 
     it('Error to get without authentication', async () => {

@@ -7,7 +7,7 @@ const klingo = {
   password: '123', // Senha da aplicação
   env: 'sandbox',
   log: __dirname + '/log/klingo.log',
-  debug: false
+  debug: true
 };
 
 /**
@@ -99,7 +99,7 @@ const patient_update = {
  * Schedule Available
  */
 const available = {
-  especialidade: 225275,
+  especialidade: 225155,
   inicio: new Date().toISOString().split('T')[0],
   fim: new Date().toISOString().split('T')[0]
 };
@@ -108,7 +108,7 @@ const available = {
  * Schedule Confirm
  */
 const confirm = {
-  procedimento: 1123,
+  procedimento: 1027,
   id: '2020-11-04|35|151|2|15:10'
 };
 

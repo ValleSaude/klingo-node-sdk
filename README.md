@@ -1,3 +1,6 @@
+[![Build Status](https://www.travis-ci.com/rafaneri/klingo-node-sdk.svg?branch=master)](https://www.travis-ci.com/rafaneri/klingo-node-sdk)
+[![Coverage Status](https://coveralls.io/repos/github/rafaneri/klingo-node-sdk/badge.svg?branch=master)](https://coveralls.io/github/rafaneri/klingo-node-sdk?branch=master)
+
 # KLINGO + NODEJS
 
 Aplicação em desenvolvimento. Recursos básicos para integração com o Klingo. **Em breve documentação.**

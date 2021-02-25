@@ -1,10 +1,11 @@
 const config = require('../config');
-const axios = require('axios').default;
+const {Api} = require('../api/api');
 
 class Checkin {
   constructor(client, options) {
     this.client = client;
     this.options = options;
+    this.api = new Api();
   }
 
   async confirm(body) {
@@ -12,10 +13,15 @@ class Checkin {
       ...this.options.headers,
       Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
     };
-
-    const endpoint = `${this.options.base.default}/${config.checkin}`;
-    const response = await axios.post(endpoint, body, { headers });
-    return response.data;
+    
+    const { data } = await this.api.post(
+      `${opts.base.default}/${config.checkin}`,
+      {
+        headers,
+        body
+      }
+    );
+    return data;
   }
 
   async cancel(body) {
@@ -23,9 +29,12 @@ class Checkin {
       ...this.options.headers,
       Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
     };
-    const endpoint = `${this.options.base.default}/${config.checkin}`;
-    const response = await axios.delete(endpoint, { data: body, headers });
-    return response.data;
+    
+    const {data} = await this.api.delete(
+      `${this.opts.base.default}/${config.checkin}`, {data: body, headers}
+    );
+
+    return data;
   }
 }
 

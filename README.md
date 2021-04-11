@@ -5,6 +5,9 @@
 
 Aplicação em desenvolvimento. Recursos básicos para integração com o Klingo. **Em breve documentação.**
 
+Link para API do Klingo:
+https://app.swaggerhub.com/apis/agsx30/klingo-api-externa/1.0.0
+
 ## Checklist
 - [x] Verificar API
 - [x] Externo

@@ -63,6 +63,16 @@ class Schedule {
     return response.data;
   }
 
+  async book(body) {
+    const headers = {
+      ...this.options.headers,
+      Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
+    };
+    const endpoint = `${this.options.base.default}/${config.schedule.book}`;
+    const response = await this.api.post(endpoint, body, { headers });
+    return response.data;
+  }
+
   async listVouchers() {
     const headers = {
       ...this.options.headers,

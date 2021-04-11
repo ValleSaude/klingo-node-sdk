@@ -138,6 +138,37 @@ const scheduletests = () => {
     });
   });
 
+  describe('Book appointment', () => {
+    it('success', async () => {
+      const client = new klingo.Client(config.klingo);
+      const authentication = await client.external.authenticate({
+        id: config.patient_id.id,
+        login: config.klingo.login,
+        senha: config.klingo.password
+      });
+      const available = await client.schedule.getAvailableTimes(
+        config.available
+      );
+
+      const book = await client.schedule.book({
+        procedimento: available.procedimento,
+        id: Object.keys(available.horarios[0].horarios)[0]
+      });
+
+      expect(typeof book).toEqual('object');
+      expect(book).toBeDefined();
+    });
+
+    it('Error to get without authentication', async () => {
+      const client = new klingo.Client(config.klingo);
+      try {
+        const book = await client.schedule.book();
+      } catch (e) {
+        expect(e).toBeInstanceOf(TypeError);
+      }
+    });
+  });
+
   describe('List vouchers', () => {
     it('success', async () => {
       const client = new klingo.Client(config.klingo);

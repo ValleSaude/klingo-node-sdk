@@ -18,6 +18,7 @@ module.exports = {
     specialties: 'agenda/especialidades',
     exams: 'agenda/exames',
     confirm: 'agenda/horario',
+	book: 'agenda/reservar',
     vouchers: 'vouchers',
     voucher: 'voucher'
   },

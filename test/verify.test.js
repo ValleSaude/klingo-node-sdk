@@ -7,7 +7,7 @@ const verifytests = () => {
     const verify = await client.verify.get();
 
     expect(verify).toBeDefined();
-    expect(verify).toEqual('OK');
+    expect(verify).toEqual('OK [API]');
   });
 
   it('error', async () => {

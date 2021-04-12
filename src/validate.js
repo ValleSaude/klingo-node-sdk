@@ -45,7 +45,7 @@ function isNull(value) {
  * isUndefined
  */
 function isUndefined(value) {
-  return value === 'undefined';
+  return value === 'undefined' || value === undefined;
 }
 
 /**

@@ -1,3 +1,4 @@
+const moment = require('moment');
 /**
  * klingo
  */
@@ -100,8 +101,8 @@ const patient_update = {
  */
 const available = {
   especialidade: 225155,
-  inicio: new Date().toISOString().split('T')[0],
-  fim: new Date().toISOString().split('T')[0]
+  inicio: moment().format('YYYY-MM-DD'),
+  fim: moment().format('YYYY-MM-DD')
 };
 
 /**

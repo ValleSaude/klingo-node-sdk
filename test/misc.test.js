@@ -8,9 +8,36 @@ const misctests = () => {
             expect(validate.isNumber('20')).toEqual(false);
         });
 
+        it('isString', async () => {
+            expect(validate.isString('Rafael')).toEqual(true);
+            expect(validate.isString(20)).toEqual(false);
+        });
+
+        it('isArray', async () => {
+            expect(validate.isArray([10, 20])).toEqual(true);
+            expect(validate.isArray(10)).toEqual(false);
+        });
+
         it('isEmail', async () => {
             expect(validate.isEmail('rafael.neri@gmail.com')).toEqual(true);
             expect(validate.isEmail('20')).toEqual(false);
+        });
+
+        it('isFunction', async () => {
+            expect(validate.isFunction(() => {
+                return true;
+            })).toEqual(true);
+            expect(validate.isFunction(150)).toEqual(false);
+        });
+
+        it('isNull', async () => {
+            expect(validate.isNull(null)).toEqual(true);
+            expect(validate.isNull(150)).toEqual(false);
+        });
+
+        it('isUndefined', async () => {
+            expect(validate.isUndefined(undefined)).toEqual(true);
+            expect(validate.isUndefined(150)).toEqual(false);
         });
 
         it('isEquivalent', async () => {

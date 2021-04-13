@@ -100,7 +100,7 @@ const patient_update = {
  * Schedule Available
  */
 const available = {
-  especialidade: 225155,
+  especialidade: 225120,
   inicio: moment().format('YYYY-MM-DD'),
   fim: moment().format('YYYY-MM-DD')
 };
@@ -109,7 +109,7 @@ const available = {
  * Schedule Confirm
  */
 const confirm = {
-  procedimento: 1027,
+  procedimento: 416,
   id: '2020-11-04|35|151|2|15:10'
 };
 

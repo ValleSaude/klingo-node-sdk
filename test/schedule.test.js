@@ -29,6 +29,33 @@ const scheduletests = () => {
     });
   });
 
+  describe('Query exam request', () => {
+    it('success', async () => {
+      const client = new klingo.Client(config.klingo);
+      const authentication = await client.external.authenticate({
+        id: config.patient_id.id,
+        login: config.klingo.login,
+        senha: config.klingo.password
+      });
+      const request = await client.schedule.getRequest(
+        config.request
+      );
+
+      expect(typeof request).toEqual('object');
+      expect(request).toBeDefined();
+      expect(request.tipo).toEqual(config.request.tipo);
+    });
+
+    it('Error to get without authentication', async () => {
+      const client = new klingo.Client(config.klingo);
+      try {
+        const request = await client.schedule.getRequest();
+      } catch (e) {
+        expect(e).toBeInstanceOf(TypeError);
+      }
+    });
+  });
+
   describe('Query available services on the establishment', () => {
     it('success', async () => {
       const client = new klingo.Client(config.klingo);

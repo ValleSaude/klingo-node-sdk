@@ -106,6 +106,16 @@ const available = {
 };
 
 /**
+ * Exam Request
+ */
+const request = {
+  id: 67605,
+  origem: 'clivaleteste',
+  token: 'ZD1Xt3JPhePN5HWn',
+  tipo: 'requisicao'
+}
+
+/**
  * Schedule Confirm
  */
 const confirm = {
@@ -124,5 +134,6 @@ module.exports = {
   patient_id_wrong,
   patient_update,
   available,
-  confirm
+  confirm,
+  request
 };

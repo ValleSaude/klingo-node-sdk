@@ -109,10 +109,11 @@ const available = {
  * Exam Request
  */
 const request = {
-  id: 67605,
+  id: 44,
   origem: 'clivaleteste',
-  token: 'ZD1Xt3JPhePN5HWn',
-  tipo: 'requisicao'
+  token: '76NYcM54H8sehJBV',
+  tipo: 'requisicao',
+  patient_id: 347
 }
 
 /**

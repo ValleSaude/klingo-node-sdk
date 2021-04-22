@@ -33,7 +33,7 @@ const scheduletests = () => {
     it('success', async () => {
       const client = new klingo.Client(config.klingo);
       const authentication = await client.external.authenticate({
-        id: config.patient_id.id,
+        id: config.request.patient_id,
         login: config.klingo.login,
         senha: config.klingo.password
       });

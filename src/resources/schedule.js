@@ -23,6 +23,22 @@ class Schedule {
     return response.data;
   }
 
+  async getRequest(queryString) {
+    const headers = {
+      ...this.options.headers,
+      Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
+    };
+    const response = await this.api.get(
+      `${this.options.base.default}/${config.schedule.request}`,
+      {
+        headers,
+        params: queryString
+      }
+    );
+
+    return response.data;
+  }
+
   async listServices() {
     const headers = {
       ...this.options.headers,

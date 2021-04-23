@@ -1,14 +1,25 @@
 const config = require('./config');
 const klingo = require('../src');
+const klingoAPI = require('./klingo-api')
 
 const externaltests = () => {
+
   describe('Authenticate', () => {
+
+    const apiPath = klingoAPI;
+    let Swagmock = require('swagmock');
+    let mockgen = Swagmock(apiPath);
+    
+
     it('success with correct data input', async () => {
-      const client = new klingo.Client(config.klingo);
-      const patient = await client.external.authenticate({
-        id: config.patient_id.id,
-        login: config.klingo.login,
-        senha: config.klingo.password
+      let patient;
+
+      await mockgen.responses({
+        path: '/externo/login',
+        operation: 'post',
+        response: 200
+      }).then(function (res) {
+        patient = res.responses;
       });
 
       expect(typeof patient).toEqual('object');
@@ -27,8 +38,8 @@ const externaltests = () => {
           senha: config.klingo.password
         });
       } catch (error) {
+        console.log(error)
         expect(error).toBeDefined();
-
         expect(error).toHaveProperty('status', 'unknown status');
         expect(error).toHaveProperty('statusCode', 419);
       }

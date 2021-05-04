@@ -46,7 +46,10 @@ http://localhost:3333
 npm install
 npm run test
 ```
-
+## Executar o build
+```
+npm run build
+```
 
 ***
 

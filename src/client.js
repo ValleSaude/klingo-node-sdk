@@ -16,10 +16,10 @@ class Client {
     }
 
     let log = {
-      log: () => {},
-      info: () => {},
-      error: () => {},
-      success: () => {}
+      log: () => { },
+      info: () => { },
+      error: () => { },
+      success: () => { }
     };
 
     if (options.debug) {
@@ -74,6 +74,10 @@ class Client {
     this.patient = new Patient(this, config);
     this.schedule = new Schedule(this, config);
     this.checkin = new Checkin(this, config);
+
+    this.setXAppToken = (token) => {
+      config.headers['X-APP-TOKEN'] = token;
+    };
   }
 }
 

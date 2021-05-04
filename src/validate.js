@@ -122,7 +122,7 @@ function client(params) {
     return;
   }
 
-  const REQUIRED_PARAMS = ['xAppToken', 'env', 'log'];
+  const REQUIRED_PARAMS = ['env', 'log'];
 
   params = Object.keys(params);
 

@@ -21,7 +21,8 @@ module.exports = {
     request: 'requisicao',
 	  book: 'agenda/reservar',
     vouchers: 'vouchers',
-    voucher: 'voucher'
+    voucher: 'voucher',
+    serviceProviders: 'agenda/profissionais'
   },
   checkin: 'checkin'
 };

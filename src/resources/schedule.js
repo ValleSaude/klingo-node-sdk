@@ -119,7 +119,7 @@ class Schedule {
     };
 
     const response = await this.api.put(
-      `${this.options.base.default}/${config.schedule.voucher}`, {data: body, headers}
+      `${this.options.base.default}/${config.schedule.procedure}`, {data: body, headers}
     );
 
     return response.data;

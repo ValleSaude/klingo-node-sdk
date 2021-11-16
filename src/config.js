@@ -17,6 +17,7 @@ module.exports = {
     services: 'agenda/consultas',
     specialties: 'agenda/especialidades',
     exams: 'agenda/exames',
+    procedure: 'agenda/procedimento',
     confirm: 'agenda/horario',
     request: 'requisicao',
 	  book: 'agenda/reservar',

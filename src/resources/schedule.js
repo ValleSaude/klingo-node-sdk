@@ -112,6 +112,19 @@ class Schedule {
     return response.data;
   }
 
+  async changeVoucher(body) {
+    const headers = {
+      ...this.options.headers,
+      Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
+    };
+
+    const response = await this.api.put(
+      `${this.options.base.default}/${config.schedule.voucher}`, {data: body, headers}
+    );
+
+    return response.data;
+  }
+
   async listProfessionals(queryString) {
     const headers = {
       ...this.options.headers,

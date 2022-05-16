@@ -126,10 +126,7 @@ class Schedule {
   }
 
   async listProfessionals(queryString) {
-    const headers = {
-      ...this.options.headers,
-      Authorization: `${this.options.authentication.token_type} ${this.options.authentication.access_token}`
-    };
+    const headers = this.options.headers;
     const response = await this.api.get(
       `${this.options.base.default}/${config.schedule.serviceProviders}`,
       {

@@ -15,6 +15,7 @@ class Api {
         !request.url.includes('register') &&
         !request.url.includes('login') &&
         !request.url.includes('live') &&
+        !request.url.includes('profissionais') &&
         !validate.authenticated(request.headers)
       ) {
         throw new TypeError('Verifique as configurações da requisição');
